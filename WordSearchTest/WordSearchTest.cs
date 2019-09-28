@@ -158,5 +158,22 @@ namespace WordSearchTest
 
         }
 
+        [TestMethod]
+        public void SearchDiagDownMatchTest()
+        {
+            WordSearch wordSearch = new WordSearch();
+            bool result = wordSearch.SeachDiagDown(2, "IT", "XBIDCF" + "NHJTXC");
+            Assert.AreEqual(true, result);
+
+        }
+        [TestMethod]
+        public void SearchDiagUpMatchTest()
+        {
+            WordSearch wordSearch = new WordSearch();
+            bool result = wordSearch.SeachDiagUp(9, "IT", "XBTDIF" + "NHJIXT");
+            Assert.AreEqual(true, result);
+
+        }
+
     }
 }

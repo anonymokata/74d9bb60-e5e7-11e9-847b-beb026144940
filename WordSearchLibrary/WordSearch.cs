@@ -101,7 +101,49 @@ namespace WordSearchLibrary
         }
         public bool SearchDownMatch(int index, string stringUsedToSearch, string stringSearched)
         {
-
+            int row = (index / cols);
+            for (int i = 0; i < stringUsedToSearch.Length; i++)
+            {
+                int offset = index + (rows * i);
+                if (stringUsedToSearch[i] != stringSearched[offset])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        public bool SeachDiagDown(int index, string stringUsedToSearch, string stringSearched)
+        {
+            //int row = (index / cols);
+            //int col = 0;
+            //if (index >= cols)
+            //{
+            //    col = index - row * cols;
+            //}
+            //else
+            //{
+            //    col = index;
+            //}
+            int offset = 0;
+            for (int i = 0; i < stringUsedToSearch.Length; i++)
+            {
+                if (i != 0)
+                {
+                    offset = index + (rows * i)+1;
+                }
+                else
+                {
+                    offset = index;
+                }
+                if (stringUsedToSearch[i] != stringSearched[offset])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        public bool SeachDiagUp(int index, string stringUsedToSearch, string stringSearched)
+        {
             return true;
         }
         public string ReveseOrderOfString(string stringUsedToSearch)
