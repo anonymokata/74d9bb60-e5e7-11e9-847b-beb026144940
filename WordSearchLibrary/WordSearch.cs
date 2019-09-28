@@ -13,5 +13,9 @@ namespace WordSearchLibrary
         {
             return true;
         }
+        public bool ReverseSearchStringsMatch(string stringUsedToSearch, string stringReservedSearched)
+        {
+            return true;
+        }
     }
 }
