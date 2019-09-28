@@ -58,7 +58,7 @@ namespace WordSearchTest
         public void GetSearchDiagDownStringIndexTest()
         {
             WordSearch wordSearch = new WordSearch();
-            var result = wordSearch.GetSearchDiagDownStringIndex("IT", "XBIDCF" + "NHJTXC");
+            var result = wordSearch.GetSearchDiagDownUpStringIndex("IT", "XBIDCF" + "NHJTXC");
             Assert.AreEqual(2, result);
 
         }
@@ -66,8 +66,8 @@ namespace WordSearchTest
         public void GetSearchDiagUpStringIndexTest()
         {
             WordSearch wordSearch = new WordSearch();
-            var result = wordSearch.GetSearchDiagUpStringIndex("IT", "XBTDAF" + "NHJIXT");
-            Assert.AreEqual(9, result);
+            var result = wordSearch.GetSearchDiagDownUpStringIndex("TI", "XBTDAF" + "NHJIXT");
+            Assert.AreEqual(2, result);
 
         }
         [TestMethod]

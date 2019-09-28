@@ -85,14 +85,13 @@ namespace WordSearchLibrary
             return -1;
 
         }
-        public int GetSearchDiagUpStringIndex(string stringUsedToSearch, string stringSearched)
+        public int GetSearchDiagDownUpStringIndex(string stringUsedToSearch, string stringSearched)
         {
             for (int i = 0; i < stringSearched.Length; i++)
             {
                 int index = FindCharOffSet(i, stringUsedToSearch[0], stringSearched);
 
-                string results = stringSearched.Substring(index, stringUsedToSearch.Length);
-                if (stringUsedToSearch == results)
+                if (SeachDiagDown(index, stringUsedToSearch, stringSearched))
                 {
                     return index;
                 }
@@ -100,10 +99,7 @@ namespace WordSearchLibrary
             }
             return -1;
         }
-        public int GetSearchDiagDownStringIndex(string stringUsedToSearch, string stringSearche)
-        {
-            return 1;
-        }
+
         public bool SearchUpMatch(int index, string stringUsedToSearch, string stringSearched)
         {
             int row = (index / cols);
