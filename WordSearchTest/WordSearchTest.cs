@@ -97,6 +97,20 @@ namespace WordSearchTest
             string result = wordSearch.ReveseOrderOfString("JOHN");
             Assert.AreEqual("NHOJ", result);
         }
-        
+        [TestMethod]
+        public void GenerateReverseOutputTest()
+        {
+            WordSearch wordSearch = new WordSearch();
+            string result = wordSearch.GenerateReverseOutput("JOHN", "XBSDCFNHOJ");
+            Assert.AreEqual("JOHN: (4,1),(3,1),(2,1)(1,1)", result);
+
+        }
+        public void CalculateReveseCorrdinatesTest()
+        {
+            WordSearch wordSearch = new WordSearch();
+            string result = wordSearch.CalculateReveseCorrdinates(7, 4);
+            Assert.AreEqual("(4, 1),(3, 1),(2, 1)(1, 1)", result);
+
+        }
     }
 }

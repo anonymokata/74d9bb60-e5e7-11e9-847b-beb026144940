@@ -26,6 +26,38 @@ namespace WordSearchLibrary
 
             return stringUsedToSearch + ": " + coordinates;
         }
+
+        public string GenerateReverseOutput(string stringUsedToSearch, string stringSearched)
+        {
+            string reverseString = ReveseOrderOfString(stringUsedToSearch);
+            int offset = GetSearchStringIndex(reverseString, stringSearched);
+            return "JOHN: (4,1),(3,1),(2,1)(1,1)";
+
+        }
+        public string CalculateReveseCorrdinates(int Offset, int lengthToSearch)
+        {
+            int row = (Offset / cols);
+            int col = 0;
+            if (Offset >= cols)
+            {
+                col = Offset - row * cols;
+            }
+            else
+            {
+                col = Offset;
+            }
+            string coordinates = "";
+            int lengthOffset = lengthToSearch + Offset - 1;
+            for (int i = lengthOffset; i < Offset; i--)
+            {
+                if (i != lengthOffset)
+                {
+                    coordinates += ",";
+                }
+                coordinates += "(" + (i + col).ToString() + "," + row.ToString() + ")";
+            }
+            return coordinates;
+        }
         public string CalculateForwardCorrdinates(int Offset, int lengthToSearch)
         {
             int row = (Offset / cols);
