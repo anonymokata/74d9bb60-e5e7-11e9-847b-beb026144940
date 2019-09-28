@@ -56,7 +56,10 @@ namespace WordSearchLibrary
         }
         public string GenerateDiagDownOutPut(string stringUsedToSearch, string stringSearched)
         {
-            return "";
+            int offset = GetSearchDiagDownUpStringIndex(stringUsedToSearch, stringSearched);
+            string coordinates = CalculateCoordinates.CalculateDiagDownCorrdinates(offset, stringUsedToSearch.Length);
+
+            return stringUsedToSearch + ": " + coordinates;
         }
         public string GenerateDiagUpOutput(string stringUsedToSearch, string stringSearched)
         {
