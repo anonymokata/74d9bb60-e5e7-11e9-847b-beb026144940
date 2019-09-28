@@ -76,6 +76,21 @@ namespace WordSearchLibrary
             {
                 int index = FindCharOffSet(i, stringUsedToSearch[0], stringSearched);
 
+                if (SearchDownMatch(index, stringUsedToSearch, stringSearched))
+                {
+                    return index;
+                }
+                i = i + index;
+            }
+            return -1;
+
+        }
+        public int GetSearchDiagUpStringIndex(string stringUsedToSearch, string stringSearched)
+        {
+            for (int i = 0; i < stringSearched.Length; i++)
+            {
+                int index = FindCharOffSet(i, stringUsedToSearch[0], stringSearched);
+
                 string results = stringSearched.Substring(index, stringUsedToSearch.Length);
                 if (stringUsedToSearch == results)
                 {
@@ -84,7 +99,10 @@ namespace WordSearchLibrary
                 i = i + index;
             }
             return -1;
-
+        }
+        public int GetSearchDiagDownStringIndex(string stringUsedToSearch, string stringSearche)
+        {
+            return 1;
         }
         public bool SearchUpMatch(int index, string stringUsedToSearch, string stringSearched)
         {
@@ -114,16 +132,6 @@ namespace WordSearchLibrary
         }
         public bool SeachDiagDown(int index, string stringUsedToSearch, string stringSearched)
         {
-            //int row = (index / cols);
-            //int col = 0;
-            //if (index >= cols)
-            //{
-            //    col = index - row * cols;
-            //}
-            //else
-            //{
-            //    col = index;
-            //}
             int offset = 0;
             for (int i = 0; i < stringUsedToSearch.Length; i++)
             {
@@ -144,6 +152,22 @@ namespace WordSearchLibrary
         }
         public bool SeachDiagUp(int index, string stringUsedToSearch, string stringSearched)
         {
+            int offset = 0;
+            for (int i = 0; i < stringUsedToSearch.Length; i++)
+            {
+                if (i != 0)
+                {
+                    offset = index - ((rows * i) + 1);
+                }
+                else
+                {
+                    offset = index;
+                }
+                if (stringUsedToSearch[i] != stringSearched[offset])
+                {
+                    return false;
+                }
+            }
             return true;
         }
         public string ReveseOrderOfString(string stringUsedToSearch)

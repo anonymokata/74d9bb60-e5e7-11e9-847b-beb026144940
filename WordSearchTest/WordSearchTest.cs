@@ -39,6 +39,38 @@ namespace WordSearchTest
 
         }
         [TestMethod]
+        public void GetSearchDownStringIndexTest()
+        {
+            WordSearch wordSearch = new WordSearch();
+            var result = wordSearch.GetSearchDownUpStringIndex("IT", "XBIDFF" + "NHTJXT");
+            Assert.AreEqual(2, result);
+
+        }
+        [TestMethod]
+        public void GetSearchReversedDownStringIndexTest()
+        {
+            WordSearch wordSearch = new WordSearch();
+            var result = wordSearch.GetSearchDownUpStringIndex("TI", "XBTDYF" + "NHIJXT");
+            Assert.AreEqual(2, result);
+
+        }
+        [TestMethod]
+        public void GetSearchDiagDownStringIndexTest()
+        {
+            WordSearch wordSearch = new WordSearch();
+            var result = wordSearch.GetSearchDiagDownStringIndex("IT", "XBIDCF" + "NHJTXC");
+            Assert.AreEqual(2, result);
+
+        }
+        [TestMethod]
+        public void GetSearchDiagUpStringIndexTest()
+        {
+            WordSearch wordSearch = new WordSearch();
+            var result = wordSearch.GetSearchDiagUpStringIndex("IT", "XBTDAF" + "NHJIXT");
+            Assert.AreEqual(9, result);
+
+        }
+        [TestMethod]
         public void CalculateForwardCorrdinatesTest()
         {
             CalculateCoordinates coordinates = new CalculateCoordinates(6, 6);
@@ -170,7 +202,7 @@ namespace WordSearchTest
         public void SearchDiagUpMatchTest()
         {
             WordSearch wordSearch = new WordSearch();
-            bool result = wordSearch.SeachDiagUp(9, "IT", "XBTDIF" + "NHJIXT");
+            bool result = wordSearch.SeachDiagUp(9, "IT", "XBTDAF" + "NHJIXT");
             Assert.AreEqual(true, result);
 
         }
