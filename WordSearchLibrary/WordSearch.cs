@@ -8,5 +8,10 @@ namespace WordSearchLibrary
         {
             return true;
         }
+
+        public bool ForwardSearchStringsMatch(string stringUsedToSearch, string stringSearched)
+        {
+            return true;
+        }
     }
 }

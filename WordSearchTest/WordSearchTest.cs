@@ -7,10 +7,17 @@ namespace WordSearchTest
     public class WordSearchTest
     {
         [TestMethod]
-        public void NumberOfColumnsMatchNumberOfRowsForSearchTable()
+        public void NumberOfColumnsMatchNumberOfRowsForSearchTableTest()
         {
             WordSearch wordSearch = new WordSearch();
             bool result = wordSearch.ColumnsRowsEqual(5, 5);
+            Assert.AreEqual(true, result);
+        }
+        [TestMethod]
+        public void ForwardStringMatchTest()
+        {
+            WordSearch wordSearch = new WordSearch();
+            bool result = wordSearch.ForwardSearchStringsMatch("BOB", "BOB");
             Assert.AreEqual(true, result);
         }
     }
