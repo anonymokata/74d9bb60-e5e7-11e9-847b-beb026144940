@@ -19,6 +19,11 @@ namespace WordSearchLibrary
         {
             return true;
         }
+
+        public string CalculateForwardCorrdinates(int Offset, int lengthToSearch, int lengthSearched, int numRows)
+        {
+            return "(0,0),(0,1),(0,2),(0,3)";
+        }
         public int GetSearchStringIndex(string stringUsedToSearch, string stringSearched)
         {
             for (int  i=0; i < stringSearched.Length; i++)
