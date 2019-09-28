@@ -113,8 +113,8 @@ namespace WordSearchTest
         public void GenerateDownOutputTest()
         {
             WordSearch wordSearch = new WordSearch();
-            string result = wordSearch.GenerateDownOutPut("IT", "IBIDCF" + "NHTJXC");
-            Assert.AreEqual("JOHN: (2,0),(2,1)", result);
+            string result = wordSearch.GenerateDownOutPut("IT", "XBIDCF" + "NHTJXC");
+            Assert.AreEqual("IT: (2,0),(2,1)", result);
 
         }
         [TestMethod]

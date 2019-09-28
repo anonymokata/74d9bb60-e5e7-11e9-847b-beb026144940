@@ -41,7 +41,10 @@ namespace WordSearchLibrary
         }
         public string GenerateDownOutPut(string stringUsedToSearch, string stringSearched)
         {
-            return "";
+            int offset = GetSearchDownUpStringIndex(stringUsedToSearch, stringSearched);
+            string coordinates = CalculateCoordinates.CalculateDownCorrdinates(offset, stringUsedToSearch.Length);
+
+            return stringUsedToSearch + ": " + coordinates;
         }
         public string GenerateUpOutput(string stringUsedToSearch, string stringSearched)
         {

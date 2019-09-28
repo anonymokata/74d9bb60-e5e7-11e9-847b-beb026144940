@@ -17,8 +17,8 @@ namespace WordSearchLibrary
             string result5 = coordinates.CalculateUpCorrdinates(7, 2);
             bool result6 = wordSearch.SearchUpMatch(8, "IT", "XBTDIF" + "NHIJXT");
             bool result7 = wordSearch.SeachDiagDown(2, "IT", "XBIDCF" + "NHJTXC");
-            var result8 = wordSearch.GetSearchDownUpStringIndex("TI", "XBTDYF" + "NHIJXT");
-
+            int result8 = wordSearch.GetSearchDownUpStringIndex("TI", "XBTDYF" + "NHIJXT");
+            string result9 = wordSearch.GenerateDownOutPut("IT", "XBIDCF" + "NHTJXC");
         }
     }
 }
