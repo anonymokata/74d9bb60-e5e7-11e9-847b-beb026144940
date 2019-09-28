@@ -34,6 +34,13 @@ namespace WordSearchTest
             bool result = wordSearch.UpSearchStringsMatch("FRED", "DERF");
             Assert.AreEqual(true, result);
         }
+        [TestMethod]
+        public void DownStringMatchTest()
+        {
+            WordSearch wordSearch = new WordSearch();
+            bool result = wordSearch.DownSearchStringsMatch("Bill", "Bill");
+            Assert.AreEqual(true, result);
+        }
 
     }
 }
