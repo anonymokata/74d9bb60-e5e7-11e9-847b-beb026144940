@@ -6,6 +6,7 @@ namespace WordSearchTest
     [TestClass]
     public class WordSearchTest
     {
+     
         [TestMethod]
         public void NumberOfColumnsMatchNumberOfRowsForSearchTableTest()
         {
@@ -57,6 +58,15 @@ namespace WordSearchTest
             bool result = wordSearch.DiagDownSearchStringsMatch("John", "John");
             Assert.AreEqual(true, result);
         }
+        [TestMethod]
+        public void FindOffSetOfCharInSearchStringTest()
+        {
+            WordSearch wordSearch = new WordSearch();
+            int result = wordSearch.FindCharOffSet(0,"John", "aJohnxxx");
+            Assert.AreEqual(1, result);
+
+        }
+
 
     }
 }
