@@ -27,6 +27,13 @@ namespace WordSearchTest
             bool result = wordSearch.ReverseSearchStringsMatch("FRED", "DERF");
             Assert.AreEqual(true, result);
         }
+        [TestMethod]
+        public void UpStringMatchTest()
+        {
+            WordSearch wordSearch = new WordSearch();
+            bool result = wordSearch.UpSearchStringsMatch("FRED", "DERF");
+            Assert.AreEqual(true, result);
+        }
 
     }
 }

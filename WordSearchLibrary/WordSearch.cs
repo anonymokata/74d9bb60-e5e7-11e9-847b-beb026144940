@@ -17,5 +17,9 @@ namespace WordSearchLibrary
         {
             return true;
         }
+        public bool UpSearchStringsMatch(string stringUsedToSearch, string stringUpSearched)
+        {
+            return true;
+        }
     }
 }
