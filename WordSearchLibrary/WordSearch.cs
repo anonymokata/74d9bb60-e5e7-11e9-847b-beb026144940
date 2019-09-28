@@ -5,18 +5,20 @@ namespace WordSearchLibrary
 {
     public class WordSearch
     {
-        private string[] stringUseToSeach = { "BOB", "FRED", "RICH", "JOHN", "TED","DAN"};
-        private string stringToSearch = "RBOBWG" +
-                                        "IBDERF" +
-                                        "CBOBWN" +
-                                        "HBDBWH" +
-                                        "AEOAWO" +
-                                        "TBOBNJ";
-        private readonly int rows = 6;
-        private readonly int cols = 6;
+        //private string[] stringUseToSeach = { "BOB", "FRED", "RICH", "JOHN", "TED","DAN"};
+        //private string stringToSearch = "RBOBWG" +
+        //                                "IBDERF" +
+        //                                "CBOBWN" +
+        //                                "HBDBWH" +
+        //                                "AEOAWO" +
+        //                                "TBOBNJ";
+        private readonly int rows;
+        private readonly int cols;
         private CalculateCoordinates CalculateCoordinates { get; set; }
-        public WordSearch()
+        public WordSearch(int numberCols, int numberRows)
         {
+            rows = numberRows;
+            cols = numberCols;
             CalculateCoordinates = new CalculateCoordinates(cols, rows);
         }
         public bool ColumnsRowsEqual(int rows, int cols)

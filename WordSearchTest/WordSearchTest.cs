@@ -10,14 +10,14 @@ namespace WordSearchTest
         [TestMethod]
         public void NumberOfColumnsMatchNumberOfRowsForSearchTableTest()
         {
-            WordSearch wordSearch = new WordSearch();
+            WordSearch wordSearch = new WordSearch(6,6);
             var result = wordSearch.ColumnsRowsEqual(5, 5);
             Assert.AreEqual(true, result);
         }
         [TestMethod]
         public void FindOffSetOfCharInSearchStringTest()
         {
-            WordSearch wordSearch = new WordSearch();
+            WordSearch wordSearch = new WordSearch(6, 6);
             var result = wordSearch.FindCharOffSet(0, 'J', "aJohnxxx");
             Assert.AreEqual(1, result);
 
@@ -25,7 +25,7 @@ namespace WordSearchTest
         [TestMethod]
         public void GetSearchForwardStringIndexTest()
         {
-            WordSearch wordSearch = new WordSearch();
+            WordSearch wordSearch = new WordSearch(6, 6);
             var result = wordSearch.GetSearchForwardBackStringIndex("John", "dfJohnxxx");
             Assert.AreEqual(2, result);
 
@@ -33,7 +33,7 @@ namespace WordSearchTest
         [TestMethod]
         public void GetSearchBackStringIndexTest()
         {
-            WordSearch wordSearch = new WordSearch();
+            WordSearch wordSearch = new WordSearch(6, 6);
             var result = wordSearch.GetSearchForwardBackStringIndex("nhoj", "dfnhojxxx");
             Assert.AreEqual(2, result);
 
@@ -41,7 +41,7 @@ namespace WordSearchTest
         [TestMethod]
         public void GetSearchDownStringIndexTest()
         {
-            WordSearch wordSearch = new WordSearch();
+            WordSearch wordSearch = new WordSearch(6, 6);
             var result = wordSearch.GetSearchDownUpStringIndex("IT", "XBIDFF" + "NHTJXT");
             Assert.AreEqual(2, result);
 
@@ -49,7 +49,7 @@ namespace WordSearchTest
         [TestMethod]
         public void GetSearchReversedDownStringIndexTest()
         {
-            WordSearch wordSearch = new WordSearch();
+            WordSearch wordSearch = new WordSearch(6, 6);
             var result = wordSearch.GetSearchDownUpStringIndex("TI", "XBTDYF" + "NHIJXT");
             Assert.AreEqual(2, result);
 
@@ -57,7 +57,7 @@ namespace WordSearchTest
         [TestMethod]
         public void GetSearchDiagDownStringIndexTest()
         {
-            WordSearch wordSearch = new WordSearch();
+            WordSearch wordSearch = new WordSearch(6, 6);
             var result = wordSearch.GetSearchDiagDownUpStringIndex("IT", "XBIDCF" + "NHJTXC");
             Assert.AreEqual(2, result);
 
@@ -65,7 +65,7 @@ namespace WordSearchTest
         [TestMethod]
         public void GetSearchDiagUpStringIndexTest()
         {
-            WordSearch wordSearch = new WordSearch();
+            WordSearch wordSearch = new WordSearch(6, 6);
             var result = wordSearch.GetSearchDiagDownUpStringIndex("TI", "XBTDAF" + "NHJIXT");
             Assert.AreEqual(2, result);
 
@@ -81,7 +81,7 @@ namespace WordSearchTest
         [TestMethod]
         public void GenerateForwardOutputTest()
         {
-            WordSearch wordSearch = new WordSearch();
+            WordSearch wordSearch = new WordSearch(6, 6);
             string result = wordSearch.GenerateForwardOutput("BOB", "XBSDCFGBOB");
             Assert.AreEqual("BOB: (1,1),(2,1),(3,1)", result);
 
@@ -89,14 +89,14 @@ namespace WordSearchTest
         [TestMethod]
         public void ReveseOrderOfStringTest()
         {
-            WordSearch wordSearch = new WordSearch();
+            WordSearch wordSearch = new WordSearch(6, 6);
             string result = wordSearch.ReveseOrderOfString("JOHN");
             Assert.AreEqual("NHOJ", result);
         }
         [TestMethod]
         public void GenerateReverseOutputTest()
         {
-            WordSearch wordSearch = new WordSearch();
+            WordSearch wordSearch = new WordSearch(6, 6);
             string result = wordSearch.GenerateReverseOutput("JOHN", "XBSDCF" + "NHOJDJ");
             Assert.AreEqual("JOHN: (3,1),(2,1),(1,1),(0,1)", result);
 
@@ -112,7 +112,7 @@ namespace WordSearchTest
         [TestMethod]
         public void GenerateDownOutputTest()
         {
-            WordSearch wordSearch = new WordSearch();
+            WordSearch wordSearch = new WordSearch(6, 6);
             string result = wordSearch.GenerateDownOutPut("IT", "XBIDCF" + "NHTJXC");
             Assert.AreEqual("IT: (2,0),(2,1)", result);
 
@@ -120,7 +120,7 @@ namespace WordSearchTest
         [TestMethod]
         public void GenerateUpOutputTest()
         {
-            WordSearch wordSearch = new WordSearch();
+            WordSearch wordSearch = new WordSearch(6, 6);
             string result = wordSearch.GenerateUpOutput("IT", "XBTDIF" + "NHIJXT");
             Assert.AreEqual("IT: (2,1),(2,0)", result);
 
@@ -128,7 +128,7 @@ namespace WordSearchTest
         [TestMethod]
         public void GenerateDiagDownOutputTest()
         {
-            WordSearch wordSearch = new WordSearch();
+            WordSearch wordSearch = new WordSearch(6, 6);
             string result = wordSearch.GenerateDiagDownOutPut("IT", "IBIDCF" + "NHJTXC");
             Assert.AreEqual("IT: (2,0),(3,1)", result);
 
@@ -136,7 +136,7 @@ namespace WordSearchTest
         [TestMethod]
         public void GenerateDiagUpOutputTest()
         {
-            WordSearch wordSearch = new WordSearch();
+            WordSearch wordSearch = new WordSearch(6, 6);
             string result = wordSearch.GenerateDiagUpOutput("IT", "IBTDIF" + "NHJIXT");
             Assert.AreEqual("IT: (3,1),(2,0)", result);
 
@@ -176,7 +176,7 @@ namespace WordSearchTest
         [TestMethod]
         public void SearchUpMatchTest()
         {
-            WordSearch wordSearch = new WordSearch();
+            WordSearch wordSearch = new WordSearch(6, 6);
             bool result = wordSearch.SearchUpMatch(8, "IT", "XBTDIF" + "NHIJXT");
             Assert.AreEqual(true, result);
 
@@ -184,7 +184,7 @@ namespace WordSearchTest
         [TestMethod]
         public void SearchDownMatchTest()
         {
-            WordSearch wordSearch = new WordSearch();
+            WordSearch wordSearch = new WordSearch(6,6);
             bool result = wordSearch.SearchDownMatch(2,"IT", "XBIDIF" + "NHTJXT");
             Assert.AreEqual(true, result);
 
@@ -193,7 +193,7 @@ namespace WordSearchTest
         [TestMethod]
         public void SearchDiagDownMatchTest()
         {
-            WordSearch wordSearch = new WordSearch();
+            WordSearch wordSearch = new WordSearch(6, 6);
             bool result = wordSearch.SeachDiagDown(2, "IT", "XBIDCF" + "NHJTXC");
             Assert.AreEqual(true, result);
 
@@ -201,7 +201,7 @@ namespace WordSearchTest
         [TestMethod]
         public void SearchDiagUpMatchTest()
         {
-            WordSearch wordSearch = new WordSearch();
+            WordSearch wordSearch = new WordSearch(6, 6);
             bool result = wordSearch.SeachDiagUp(9, "IT", "XBTDAF" + "NHJIXT");
             Assert.AreEqual(true, result);
 
