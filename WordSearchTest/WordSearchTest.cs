@@ -41,8 +41,8 @@ namespace WordSearchTest
         [TestMethod]
         public void CalculateForwardCorrdinatesTest()
         {
-            WordSearch wordSearch = new WordSearch();
-            string result = wordSearch.CalculateForwardCorrdinates(7, 4);
+            CalculateCoordinates coordinates = new CalculateCoordinates(6, 6);
+            string result = coordinates.CalculateForwardCorrdinates(7, 4);
             Assert.AreEqual("(1,1),(2,1),(3,1),(4,1)", result);
 
         }
@@ -72,8 +72,8 @@ namespace WordSearchTest
         [TestMethod]
         public void CalculateReveseCorrdinatesTest()
         {
-            WordSearch wordSearch = new WordSearch();
-            string result = wordSearch.CalculateReveseCorrdinates(7, 4);
+            CalculateCoordinates coordinates = new CalculateCoordinates(6, 6);
+            string result = coordinates.CalculateReveseCorrdinates(7, 4);
             Assert.AreEqual("(4,1),(3,1),(2,1),(1,1)", result);
 
         }
@@ -112,32 +112,32 @@ namespace WordSearchTest
         [TestMethod]
         public void CalculateDownCorrdinatesTest()
         {
-            WordSearch wordSearch = new WordSearch();
-            string result = wordSearch.CalculateDownCorrdinates(7, 2);
+            CalculateCoordinates coordinates = new CalculateCoordinates(6, 6);
+            string result = coordinates.CalculateDownCorrdinates(7, 2);
             Assert.AreEqual("(1,1),(1,2)", result);
 
         }
         [TestMethod]
         public void CalculateUpCorrdinatesTest()
         {
-            WordSearch wordSearch = new WordSearch();
-            string result = wordSearch.CalculateUpCorrdinates(7, 2);
+            CalculateCoordinates coordinates = new CalculateCoordinates(6, 6);
+            string result = coordinates.CalculateUpCorrdinates(7, 2);
             Assert.AreEqual("(1,1),(1,0)", result);
 
         }
         [TestMethod]
         public void CalculateDiagDownCorrdinatesTest()
         {
-            WordSearch wordSearch = new WordSearch();
-            string result = wordSearch.CalculateDiagDownCorrdinates(7, 2);
+            CalculateCoordinates coordinates = new CalculateCoordinates(6, 6);
+            string result = coordinates.CalculateDiagDownCorrdinates(7, 2);
             Assert.AreEqual("(1,1),(2,2)", result);
 
         }
         [TestMethod]
         public void CalculateDiagUpCorrdinatesTest()
         {
-            WordSearch wordSearch = new WordSearch();
-            string result = wordSearch.CalculateDiagUpCorrdinates(7, 2);
+            CalculateCoordinates coordinates = new CalculateCoordinates(6, 6);
+            string result = coordinates.CalculateDiagUpCorrdinates(7, 2);
             Assert.AreEqual("(1,1),(0,0)", result);
 
         }

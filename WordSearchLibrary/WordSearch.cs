@@ -14,7 +14,11 @@ namespace WordSearchLibrary
                                         "TBOBNJ";
         private readonly int rows = 6;
         private readonly int cols = 6;
-
+        private CalculateCoordinates CalculateCoordinates { get; set; }
+        public WordSearch()
+        {
+            CalculateCoordinates = new CalculateCoordinates(cols, rows);
+        }
         public bool ColumnsRowsEqual(int rows, int cols)
         {
             return true;
@@ -22,7 +26,7 @@ namespace WordSearchLibrary
         public string GenerateForwardOutput(string stringUsedToSearch, string stringSearched)
         {
             int offset = GetSearchForwardBackStringIndex(stringUsedToSearch, stringSearched);
-            string   coordinates = CalculateForwardCorrdinates(offset, stringUsedToSearch.Length);
+            string   coordinates = CalculateCoordinates.CalculateForwardCorrdinates(offset, stringUsedToSearch.Length);
 
             return stringUsedToSearch + ": " + coordinates;
         }
@@ -31,7 +35,7 @@ namespace WordSearchLibrary
         {
             string reverseString = ReveseOrderOfString(stringUsedToSearch);
             int offset = GetSearchForwardBackStringIndex(reverseString, stringSearched);
-            string coordinates = CalculateReveseCorrdinates(offset, stringUsedToSearch.Length);
+            string coordinates = CalculateCoordinates.CalculateReveseCorrdinates(offset, stringUsedToSearch.Length);
             return stringUsedToSearch + ": " + coordinates;
 
         }
@@ -50,144 +54,6 @@ namespace WordSearchLibrary
         public string GenerateDiagUpOutput(string stringUsedToSearch, string stringSearched)
         {
             return "";
-        }
-        public string CalculateDiagDownCorrdinates(int Offset, int lengthToSearch)
-        {
-            int row = (Offset / cols);
-            int col = 0;
-            if (Offset >= cols)
-            {
-                col = Offset - row * cols;
-            }
-            else
-            {
-                col = Offset;
-            }
-            string coordinates = "";
-            for (int i = 0; i < lengthToSearch; i++)
-            {
-                if (i != 0)
-                {
-                    coordinates += ",";
-                }
-                coordinates += "(" + (col + i).ToString() + "," + (i + row).ToString() + ")";
-            }
-            return coordinates;
-        }
-        public string CalculateDiagUpCorrdinates(int Offset, int lengthToSearch)
-        {
-            int row = (Offset / cols);
-            int col = 0;
-            if (Offset >= cols)
-            {
-                col = Offset - row * cols;
-            }
-            else
-            {
-                col = Offset;
-            }
-            string coordinates = "";
-            for (int i = 0; i < lengthToSearch; i++)
-            {
-                if (i != 0)
-                {
-                    coordinates += ",";
-                }
-                coordinates += "(" + (col - i).ToString() + "," + (row - i).ToString() + ")";
-            }
-            return coordinates;
-        }
-        public string CalculateUpCorrdinates(int Offset, int lengthToSearch)
-        {
-            int row = (Offset / cols);
-            int col = 0;
-            if (Offset >= cols)
-            {
-                col = Offset - row * cols;
-            }
-            else
-            {
-                col = Offset;
-            }
-            string coordinates = "";
-            for (int i = 0; i < lengthToSearch; i++)
-            {
-                if (i != 0)
-                {
-                    coordinates += ",";
-                }
-                coordinates += "(" + (col).ToString() + "," + (row - i).ToString() + ")";
-            }
-            return coordinates;
-        }
-        public string CalculateDownCorrdinates(int Offset, int lengthToSearch)
-        {
-            int row = (Offset / cols);
-            int col = 0;
-            if (Offset >= cols)
-            {
-                col = Offset - row * cols;
-            }
-            else
-            {
-                col = Offset;
-            }
-            string coordinates = "";
-            for (int i = 0; i < lengthToSearch; i++)
-            {
-                if (i != 0)
-                {
-                    coordinates += ",";
-                }
-                coordinates += "(" + (col).ToString() + "," + (i + row).ToString() + ")";
-            }
-            return coordinates;
-        }
-        public string CalculateReveseCorrdinates(int Offset, int lengthToSearch)
-        {
-            int row = (Offset / cols);
-            int col = 0;
-            if (Offset >= cols)
-            {
-                col = Offset - row * cols;
-            }
-            else
-            {
-                col = Offset;
-            }
-            string coordinates = "";
-            for (int i = lengthToSearch-1; 0 <= i; i--)
-            {
-                if (i != lengthToSearch-1)
-                {
-                    coordinates += ",";
-                }
-                coordinates += "(" + (i + col).ToString() + "," + row.ToString() + ")";
-            }
-            return coordinates;
-        }
-        public string CalculateForwardCorrdinates(int Offset, int lengthToSearch)
-        {
-            int row = (Offset / cols);
-            int col = 0;
-            if (Offset >= cols)
-            {
-                col = Offset - row * cols;
-            }
-            else
-            {
-                col = Offset;
-            }
-            string coordinates = "";
-            for(int i=0; i < lengthToSearch;i++)
-            {
-                if (i != 0)
-                {
-                    coordinates += ",";
-                }
-                coordinates += "(" + (i + col).ToString() + "," + row.ToString() + ")";
-            }
-            return coordinates;
         }
 
         public int GetSearchForwardBackStringIndex(string stringUsedToSearch, string stringSearched)
