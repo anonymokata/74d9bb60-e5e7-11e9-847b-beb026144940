@@ -105,7 +105,23 @@ namespace WordSearchTest
         {
             WordSearch wordSearch = new WordSearch();
             string result = wordSearch.CalculateUpCorrdinates(7, 2);
-            Assert.AreEqual("1,2),(1,1)", result);
+            Assert.AreEqual("(1,1),(1,0)", result);
+
+        }
+        [TestMethod]
+        public void CalculateDiagDownCorrdinatesTest()
+        {
+            WordSearch wordSearch = new WordSearch();
+            string result = wordSearch.CalculateDiagDownCorrdinates(7, 2);
+            Assert.AreEqual("1,1),(2,2)", result);
+
+        }
+        [TestMethod]
+        public void CalculateDiagUpCorrdinatesTest()
+        {
+            WordSearch wordSearch = new WordSearch();
+            string result = wordSearch.CalculateDiagUpCorrdinates(7, 2);
+            Assert.AreEqual("1,1),(0,0)", result);
 
         }
     }

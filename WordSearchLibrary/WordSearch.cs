@@ -51,6 +51,14 @@ namespace WordSearchLibrary
         //{
         //    return "";
         //}
+        public string CalculateDiagDownCorrdinates(int Offset, int lengthToSearch)
+        {
+            return "";
+        }
+        public string CalculateDiagUpCorrdinates(int Offset, int lengthToSearch)
+        {
+            return "";
+        }
         public string CalculateUpCorrdinates(int Offset, int lengthToSearch)
         {
             int row = (Offset / cols);
@@ -64,13 +72,13 @@ namespace WordSearchLibrary
                 col = Offset;
             }
             string coordinates = "";
-            for (int i = lengthToSearch - 1; 0 <= i; i--)
+            for (int i = 0; i < lengthToSearch; i++)
             {
-                if (i != lengthToSearch - 1)
+                if (i != 0)
                 {
                     coordinates += ",";
                 }
-                coordinates += "(" + (i + col).ToString() + "," + (row - i).ToString() + ")";
+                coordinates += "(" + (col).ToString() + "," + (row - i).ToString() + ")";
             }
             return coordinates;
         }
