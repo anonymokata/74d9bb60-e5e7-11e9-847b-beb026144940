@@ -63,6 +63,15 @@ namespace WordSearchLibrary
             return -1;
 
         }
+        public string ReveseOrderOfString(string stringUsedToSearch)
+        {
+            string reverseString = "";
+            for(int i= stringUsedToSearch.Length-1; 0 <= i; i--)
+            {
+                reverseString += stringUsedToSearch[i];
+            }
+            return reverseString;
+        }
         public int FindCharOffSet(int offset,char charUsedToSearch, string stringSearched)
         {
             int index = stringSearched.IndexOf(charUsedToSearch, offset);

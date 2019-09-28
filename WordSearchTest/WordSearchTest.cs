@@ -86,10 +86,17 @@ namespace WordSearchTest
         public void GenerateForwardOutputTest()
         {
             WordSearch wordSearch = new WordSearch();
-            string result = wordSearch.GenerateForwardOutput("BOB","XBSDCFGBOB");
+            string result = wordSearch.GenerateForwardOutput("BOB", "XBSDCFGBOB");
             Assert.AreEqual("BOB: (1,1),(2,1),(3,1)", result);
 
         }
-
+        [TestMethod]
+        public void ReveseOrderOfStringTest()
+        {
+            WordSearch wordSearch = new WordSearch();
+            string result = wordSearch.ReveseOrderOfString("JOHN");
+            Assert.AreEqual("NHOJ", result);
+        }
+        
     }
 }
