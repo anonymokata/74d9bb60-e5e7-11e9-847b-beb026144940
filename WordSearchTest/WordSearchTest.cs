@@ -78,8 +78,8 @@ namespace WordSearchTest
         public void CalculateForwardCorrdinatesTest()
         {
             WordSearch wordSearch = new WordSearch();
-            string result = wordSearch.CalculateForwardCorrdinates(0,4,6);
-            Assert.AreEqual("(0,0),(1,0),(2,0),(3,0)", result);
+            string result = wordSearch.CalculateForwardCorrdinates(7,4,6);
+            Assert.AreEqual("(1,1),(2,1),(3,1),(4,1)", result);
 
         }
 
