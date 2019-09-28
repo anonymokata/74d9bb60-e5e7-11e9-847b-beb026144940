@@ -35,6 +35,68 @@ namespace WordSearchLibrary
             return stringUsedToSearch + ": " + coordinates;
 
         }
+        public string GenerateDownOutPut(string stringUsedToSearch, string stringSearched)
+        {
+            return "";
+        }
+        public string GenerateUpOutput(string stringUsedToSearch, string stringSearched)
+        {
+            return "";
+        }
+        public string GenerateDiagDownOutPut(string stringUsedToSearch, string stringSearched)
+        {
+            return "";
+        }
+        //public string GenerateDiagUPOutput(string stringUsedToSearch, string stringSearched)
+        //{
+        //    return "";
+        //}
+        public string CalculateUpCorrdinates(int Offset, int lengthToSearch)
+        {
+            int row = (Offset / cols);
+            int col = 0;
+            if (Offset >= cols)
+            {
+                col = Offset - row * cols;
+            }
+            else
+            {
+                col = Offset;
+            }
+            string coordinates = "";
+            for (int i = lengthToSearch - 1; 0 <= i; i--)
+            {
+                if (i != lengthToSearch - 1)
+                {
+                    coordinates += ",";
+                }
+                coordinates += "(" + (i + col).ToString() + "," + (row - i).ToString() + ")";
+            }
+            return coordinates;
+        }
+        public string CalculateDownCorrdinates(int Offset, int lengthToSearch)
+        {
+            int row = (Offset / cols);
+            int col = 0;
+            if (Offset >= cols)
+            {
+                col = Offset - row * cols;
+            }
+            else
+            {
+                col = Offset;
+            }
+            string coordinates = "";
+            for (int i = 0; i < lengthToSearch; i++)
+            {
+                if (i != 0)
+                {
+                    coordinates += ",";
+                }
+                coordinates += "(" + (col).ToString() + "," + (i + row).ToString() + ")";
+            }
+            return coordinates;
+        }
         public string CalculateReveseCorrdinates(int Offset, int lengthToSearch)
         {
             int row = (Offset / cols);
@@ -117,27 +179,6 @@ namespace WordSearchLibrary
             }
 
             return false;
-        }
-        public bool ReverseSearchStringsMatch(string stringUsedToSearch, string stringReservedSearched)
-        {
-            return true;
-        }
-        public bool UpSearchStringsMatch(string stringUsedToSearch, string stringUpSearched)
-        {
-            return true;
-        }
-        public bool DownSearchStringsMatch(string stringUsedToSearch, string stringDownSearched)
-        {
-            return true;
-        }
-        public bool DiagUpSearchStringsMatch(string stringUsedToSearch, string stringDiagUpSearched)
-        {
-            return true;
-        }
-        public bool DiagDownSearchStringsMatch(string stringUsedToSearch, string stringDiagDownSearched)
-        {
-            return true;
-        }
-
+        }   
     }
 }
