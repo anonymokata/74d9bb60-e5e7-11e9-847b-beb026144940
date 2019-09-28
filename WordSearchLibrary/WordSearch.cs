@@ -19,14 +19,20 @@ namespace WordSearchLibrary
         {
             return true;
         }
-
-        public string CalculateForwardCorrdinates(int Offset, int lengthToSearch, int numberCols)
+        public string GenerateForwardOutput(string stringUsedToSearch, string stringSearched)
         {
-            int row = (Offset / numberCols);
+            int offset = GetSearchStringIndex(stringUsedToSearch, stringSearched);
+            string   coordinates = CalculateForwardCorrdinates(offset, stringUsedToSearch.Length);
+
+            return stringUsedToSearch + ": " + coordinates;
+        }
+        public string CalculateForwardCorrdinates(int Offset, int lengthToSearch)
+        {
+            int row = (Offset / cols);
             int col = 0;
-            if (Offset >= numberCols)
+            if (Offset >= cols)
             {
-                col = Offset - row * numberCols;
+                col = Offset - row * cols;
             }
             else
             {

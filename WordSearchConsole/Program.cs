@@ -8,7 +8,7 @@ namespace WordSearchConsole
         static void Main(string[] args)
         {
             WordSearch wordSearch = new WordSearch();
-            string result = wordSearch.CalculateForwardCorrdinates(0, 4, 6);
+            string result = wordSearch.CalculateForwardCorrdinates(0, 4);
         }
     }
 }
