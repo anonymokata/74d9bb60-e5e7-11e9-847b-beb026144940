@@ -48,7 +48,11 @@ namespace WordSearchLibrary
         }
         public string GenerateUpOutput(string stringUsedToSearch, string stringSearched)
         {
-            return "";
+            string reverseString = ReveseOrderOfString(stringUsedToSearch);
+            int offset = GetSearchDownUpStringIndex(reverseString, stringSearched);
+            string coordinates = CalculateCoordinates.CalculateUpCorrdinates(offset, stringUsedToSearch.Length);
+
+            return stringUsedToSearch + ": " + coordinates;
         }
         public string GenerateDiagDownOutPut(string stringUsedToSearch, string stringSearched)
         {

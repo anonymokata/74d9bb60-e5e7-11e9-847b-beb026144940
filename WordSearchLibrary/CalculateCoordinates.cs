@@ -27,13 +27,13 @@ namespace WordSearchLibrary
                 col = Offset;
             }
             string coordinates = "";
-            for (int i = 0; i < lengthToSearch; i++)
+            for (int i = lengthToSearch - 1; 0 <= i; i--)
             {
-                if (i != 0)
+                if (i != lengthToSearch - 1)
                 {
                     coordinates += ",";
                 }
-                coordinates += "(" + (col).ToString() + "," + (row - i).ToString() + ")";
+                coordinates += "(" + (col).ToString() + "," + i + ")";
             }
             return coordinates;
         }

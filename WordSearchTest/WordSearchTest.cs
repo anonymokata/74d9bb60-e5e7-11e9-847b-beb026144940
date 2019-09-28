@@ -121,8 +121,8 @@ namespace WordSearchTest
         public void GenerateUpOutputTest()
         {
             WordSearch wordSearch = new WordSearch();
-            string result = wordSearch.GenerateUpOutput("IT", "IBTDIF" + "NHIJXT");
-            Assert.AreEqual("JOHN: (0,0),(0,1)", result);
+            string result = wordSearch.GenerateUpOutput("IT", "XBTDIF" + "NHIJXT");
+            Assert.AreEqual("IT: (2,1),(2,0)", result);
 
         }
         [TestMethod]
