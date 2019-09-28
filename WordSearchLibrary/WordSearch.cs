@@ -19,9 +19,13 @@ namespace WordSearchLibrary
         {
             return true;
         }
+        public void FowardSearch(string stringUsedToSearch, string stringSearched)
+        {
+        }
         public int FindCharOffSet(int offset,string stringUsedToSearch, string stringSearched)
         {
-            return 1;
+            int index = stringSearched.IndexOf(stringUsedToSearch[0], offset);
+            return index;
         }
         public bool ForwardSearchStringsMatch(string stringUsedToSearch, string stringSearched)
         {
