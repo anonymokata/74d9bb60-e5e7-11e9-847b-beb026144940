@@ -20,9 +20,28 @@ namespace WordSearchLibrary
             return true;
         }
 
-        public string CalculateForwardCorrdinates(int Offset, int lengthToSearch, int lengthSearched, int numRows)
+        public string CalculateForwardCorrdinates(int Offset, int lengthToSearch, int numberCols)
         {
-            return "(0,0),(0,1),(0,2),(0,3)";
+            int row = (Offset / numberCols);
+            int col = 0;
+            if (Offset >= numberCols)
+            {
+                col = Offset - row * numberCols;
+            }
+            else
+            {
+                col = Offset;
+            }
+            string coordinates = "";
+            for(int i=0; i < lengthToSearch;i++)
+            {
+                if (i != 0)
+                {
+                    coordinates += ",";
+                }
+                coordinates += "(" + (i + col).ToString() + "," + row.ToString() + ")";
+            }
+            return coordinates;
         }
         public int GetSearchStringIndex(string stringUsedToSearch, string stringSearched)
         {

@@ -7,6 +7,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordSearchTestProject", "Wo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordSearchLibrary", "WordSearchLibrary\WordSearchLibrary.csproj", "{6C137279-FBF4-4EC9-9324-39DD852597B9}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "WordSearchConsole", "WordSearchConsole\WordSearchConsole.csproj", "{1EB9F3FC-8265-467C-92AD-5E3F64E8610E}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{6C137279-FBF4-4EC9-9324-39DD852597B9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{6C137279-FBF4-4EC9-9324-39DD852597B9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{6C137279-FBF4-4EC9-9324-39DD852597B9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{1EB9F3FC-8265-467C-92AD-5E3F64E8610E}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{1EB9F3FC-8265-467C-92AD-5E3F64E8610E}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{1EB9F3FC-8265-467C-92AD-5E3F64E8610E}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{1EB9F3FC-8265-467C-92AD-5E3F64E8610E}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
