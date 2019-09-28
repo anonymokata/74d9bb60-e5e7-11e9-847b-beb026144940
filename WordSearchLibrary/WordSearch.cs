@@ -76,7 +76,26 @@ namespace WordSearchLibrary
         }
         public string CalculateDiagUpCorrdinates(int Offset, int lengthToSearch)
         {
-            return "";
+            int row = (Offset / cols);
+            int col = 0;
+            if (Offset >= cols)
+            {
+                col = Offset - row * cols;
+            }
+            else
+            {
+                col = Offset;
+            }
+            string coordinates = "";
+            for (int i = 0; i < lengthToSearch; i++)
+            {
+                if (i != 0)
+                {
+                    coordinates += ",";
+                }
+                coordinates += "(" + (col - i).ToString() + "," + (row - i).ToString() + ")";
+            }
+            return coordinates;
         }
         public string CalculateUpCorrdinates(int Offset, int lengthToSearch)
         {
