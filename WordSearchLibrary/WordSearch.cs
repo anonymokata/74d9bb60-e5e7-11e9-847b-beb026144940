@@ -19,13 +19,23 @@ namespace WordSearchLibrary
         {
             return true;
         }
-        public string GetSearchStringCoordinates(string stringUsedToSearch, string stringSearched)
+        public int GetSearchStringIndex(string stringUsedToSearch, string stringSearched)
         {
-            return "(0,0),(0,1),(0,2),(0,3)";
+            for (int  i=0; i < stringSearched.Length; i++)
+            {
+                int index = FindCharOffSet(i, stringUsedToSearch[0], stringSearched);
+                string results = stringSearched.Substring(index, stringUsedToSearch.Length);
+                if (ForwardSearchStringsMatch(stringUsedToSearch, results)){
+                    return index;
+                }
+                i = i + index;
+            }
+            return -1;
+
         }
-        public int FindCharOffSet(int offset,string stringUsedToSearch, string stringSearched)
+        public int FindCharOffSet(int offset,char charUsedToSearch, string stringSearched)
         {
-            int index = stringSearched.IndexOf(stringUsedToSearch[0], offset);
+            int index = stringSearched.IndexOf(charUsedToSearch, offset);
             return index;
         }
         public bool ForwardSearchStringsMatch(string stringUsedToSearch, string stringSearched)

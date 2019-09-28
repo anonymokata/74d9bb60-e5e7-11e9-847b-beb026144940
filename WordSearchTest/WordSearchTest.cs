@@ -62,16 +62,16 @@ namespace WordSearchTest
         public void FindOffSetOfCharInSearchStringTest()
         {
             WordSearch wordSearch = new WordSearch();
-            var result = wordSearch.FindCharOffSet(0, "John", "aJohnxxx");
+            var result = wordSearch.FindCharOffSet(0, 'J', "aJohnxxx");
             Assert.AreEqual(1, result);
 
         }
         [TestMethod]
-        public void GetSearchStringCoordinatesTest()
+        public void GetSearchStringIndexTest()
         {
             WordSearch wordSearch = new WordSearch();
-            var result = wordSearch.GetSearchStringCoordinates("John", "Johnxxx");
-            Assert.AreEqual("(0,0),(0,1),(0,2),(0,3)", result);
+            var result = wordSearch.GetSearchStringIndex("John", "dfJohnxxx");
+            Assert.AreEqual(2, result);
 
         }
 
