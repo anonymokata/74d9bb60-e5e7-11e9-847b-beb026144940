@@ -189,19 +189,54 @@ namespace WordSearchLibrary
             }
             return coordinates;
         }
+
         public int GetSearchForwardBackStringIndex(string stringUsedToSearch, string stringSearched)
         {
             for (int  i=0; i < stringSearched.Length; i++)
             {
                 int index = FindCharOffSet(i, stringUsedToSearch[0], stringSearched);
                 string results = stringSearched.Substring(index, stringUsedToSearch.Length);
-                if (ForwardSearchStringsMatch(stringUsedToSearch, results)){
+                if (stringUsedToSearch == results){
                     return index;
                 }
                 i = i + index;
             }
             return -1;
 
+        }
+        public int GetSearchDownUpStringIndex(string stringUsedToSearch, string stringSearched)
+        {
+            for (int i = 0; i < stringSearched.Length; i++)
+            {
+                int index = FindCharOffSet(i, stringUsedToSearch[0], stringSearched);
+
+                string results = stringSearched.Substring(index, stringUsedToSearch.Length);
+                if (stringUsedToSearch == results)
+                {
+                    return index;
+                }
+                i = i + index;
+            }
+            return -1;
+
+        }
+        public bool SearchUpMatch(int index, string stringUsedToSearch, string stringSearched)
+        {
+            int row = (index / cols);
+            for (int i = 0; i < stringUsedToSearch.Length; i++)
+            {
+                int offset = index - (rows * i);
+                if (stringUsedToSearch[i] != stringSearched[offset])
+                {
+                    return false;
+                }
+            }
+            return true;
+        }
+        public bool SearchDownMatch(int index, string stringUsedToSearch, string stringSearched)
+        {
+
+            return true;
         }
         public string ReveseOrderOfString(string stringUsedToSearch)
         {
@@ -217,14 +252,6 @@ namespace WordSearchLibrary
             int index = stringSearched.IndexOf(charUsedToSearch, offset);
             return index;
         }
-        public bool ForwardSearchStringsMatch(string stringUsedToSearch, string stringSearched)
-        {
-            if (stringUsedToSearch == stringSearched)
-            {
-                return true;
-            }
 
-            return false;
-        }   
     }
 }

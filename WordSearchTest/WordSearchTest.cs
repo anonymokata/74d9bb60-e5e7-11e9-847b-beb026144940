@@ -15,13 +15,6 @@ namespace WordSearchTest
             Assert.AreEqual(true, result);
         }
         [TestMethod]
-        public void ForwardStringMatchTest()
-        {
-            WordSearch wordSearch = new WordSearch();
-            var result = wordSearch.ForwardSearchStringsMatch("BOB", "BOB");
-            Assert.AreEqual(true, result);
-        }
-        [TestMethod]
         public void FindOffSetOfCharInSearchStringTest()
         {
             WordSearch wordSearch = new WordSearch();
@@ -148,5 +141,22 @@ namespace WordSearchTest
             Assert.AreEqual("(1,1),(0,0)", result);
 
         }
+        [TestMethod]
+        public void SearchUpMatchTest()
+        {
+            WordSearch wordSearch = new WordSearch();
+            bool result = wordSearch.SearchUpMatch(8, "IT", "XBTDIF" + "NHIJXT");
+            Assert.AreEqual(true, result);
+
+        }
+        [TestMethod]
+        public void SearchDownMatchTest()
+        {
+            WordSearch wordSearch = new WordSearch();
+            bool result = wordSearch.SearchDownMatch(2,"IT", "XBIDIF" + "NHTJXT");
+            Assert.AreEqual(true, result);
+
+        }
+
     }
 }
