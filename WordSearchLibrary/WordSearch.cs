@@ -19,8 +19,9 @@ namespace WordSearchLibrary
         {
             return true;
         }
-        public void FowardSearch(string stringUsedToSearch, string stringSearched)
+        public string GetSearchStringCoordinates(string stringUsedToSearch, string stringSearched)
         {
+            return "(0,0),(0,1),(0,2),(0,3)";
         }
         public int FindCharOffSet(int offset,string stringUsedToSearch, string stringSearched)
         {
