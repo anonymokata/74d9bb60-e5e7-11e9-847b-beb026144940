@@ -102,14 +102,14 @@ namespace WordSearchTest
         {
             WordSearch wordSearch = new WordSearch();
             string result = wordSearch.GenerateReverseOutput("JOHN", "XBSDCFNHOJ");
-            Assert.AreEqual("JOHN: (4,1),(3,1),(2,1)(1,1)", result);
+            Assert.AreEqual("JOHN: (3,1),(2,1),(1,1),(0,1)", result);
 
         }
         public void CalculateReveseCorrdinatesTest()
         {
             WordSearch wordSearch = new WordSearch();
             string result = wordSearch.CalculateReveseCorrdinates(7, 4);
-            Assert.AreEqual("(4, 1),(3, 1),(2, 1)(1, 1)", result);
+            Assert.AreEqual("(4,1),(3,1),(2,1),(1,1)", result);
 
         }
     }

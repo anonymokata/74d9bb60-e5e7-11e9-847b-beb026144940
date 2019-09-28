@@ -31,7 +31,8 @@ namespace WordSearchLibrary
         {
             string reverseString = ReveseOrderOfString(stringUsedToSearch);
             int offset = GetSearchStringIndex(reverseString, stringSearched);
-            return "JOHN: (4,1),(3,1),(2,1)(1,1)";
+            string coordinates = CalculateReveseCorrdinates(offset, stringUsedToSearch.Length);
+            return stringUsedToSearch + ": " + coordinates;
 
         }
         public string CalculateReveseCorrdinates(int Offset, int lengthToSearch)
@@ -47,10 +48,9 @@ namespace WordSearchLibrary
                 col = Offset;
             }
             string coordinates = "";
-            int lengthOffset = lengthToSearch + Offset - 1;
-            for (int i = lengthOffset; i < Offset; i--)
+            for (int i = lengthToSearch-1; 0 <= i; i--)
             {
-                if (i != lengthOffset)
+                if (i != lengthToSearch-1)
                 {
                     coordinates += ",";
                 }
