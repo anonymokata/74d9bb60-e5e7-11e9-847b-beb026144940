@@ -169,7 +169,7 @@ namespace WordSearchTest
         public void CalculateDiagUpCorrdinatesTest()
         {
             CalculateCoordinates coordinates = new CalculateCoordinates(6, 6);
-            string result = coordinates.CalculateDiagUpCorrdinates(7, 2);
+            string result = coordinates.CalculateDiagUpCorrdinates(0, 2);
             Assert.AreEqual("(1,1),(0,0)", result);
 
         }

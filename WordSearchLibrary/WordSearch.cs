@@ -63,7 +63,11 @@ namespace WordSearchLibrary
         }
         public string GenerateDiagUpOutput(string stringUsedToSearch, string stringSearched)
         {
-            return "";
+            string reverseString = ReveseOrderOfString(stringUsedToSearch);
+            int offset = GetSearchDiagDownUpStringIndex(reverseString, stringSearched);
+            string coordinates = CalculateCoordinates.CalculateDiagUpCorrdinates(offset, stringUsedToSearch.Length);
+
+            return stringUsedToSearch + ": " + coordinates;
         }
 
         public int GetSearchForwardBackStringIndex(string stringUsedToSearch, string stringSearched)
