@@ -113,7 +113,7 @@ namespace WordSearchTest
         {
             WordSearch wordSearch = new WordSearch();
             string result = wordSearch.CalculateDiagDownCorrdinates(7, 2);
-            Assert.AreEqual("1,1),(2,2)", result);
+            Assert.AreEqual("(1,1),(2,2)", result);
 
         }
         [TestMethod]
@@ -121,7 +121,7 @@ namespace WordSearchTest
         {
             WordSearch wordSearch = new WordSearch();
             string result = wordSearch.CalculateDiagUpCorrdinates(7, 2);
-            Assert.AreEqual("1,1),(0,0)", result);
+            Assert.AreEqual("(1,1),(0,0)", result);
 
         }
     }
