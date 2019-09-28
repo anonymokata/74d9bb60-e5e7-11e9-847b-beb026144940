@@ -21,7 +21,7 @@ namespace WordSearchLibrary
         }
         public string GenerateForwardOutput(string stringUsedToSearch, string stringSearched)
         {
-            int offset = GetSearchStringIndex(stringUsedToSearch, stringSearched);
+            int offset = GetSearchForwardBackStringIndex(stringUsedToSearch, stringSearched);
             string   coordinates = CalculateForwardCorrdinates(offset, stringUsedToSearch.Length);
 
             return stringUsedToSearch + ": " + coordinates;
@@ -30,7 +30,7 @@ namespace WordSearchLibrary
         public string GenerateReverseOutput(string stringUsedToSearch, string stringSearched)
         {
             string reverseString = ReveseOrderOfString(stringUsedToSearch);
-            int offset = GetSearchStringIndex(reverseString, stringSearched);
+            int offset = GetSearchForwardBackStringIndex(reverseString, stringSearched);
             string coordinates = CalculateReveseCorrdinates(offset, stringUsedToSearch.Length);
             return stringUsedToSearch + ": " + coordinates;
 
@@ -47,10 +47,10 @@ namespace WordSearchLibrary
         {
             return "";
         }
-        //public string GenerateDiagUPOutput(string stringUsedToSearch, string stringSearched)
-        //{
-        //    return "";
-        //}
+        public string GenerateDiagUpOutput(string stringUsedToSearch, string stringSearched)
+        {
+            return "";
+        }
         public string CalculateDiagDownCorrdinates(int Offset, int lengthToSearch)
         {
             int row = (Offset / cols);
@@ -189,7 +189,7 @@ namespace WordSearchLibrary
             }
             return coordinates;
         }
-        public int GetSearchStringIndex(string stringUsedToSearch, string stringSearched)
+        public int GetSearchForwardBackStringIndex(string stringUsedToSearch, string stringSearched)
         {
             for (int  i=0; i < stringSearched.Length; i++)
             {

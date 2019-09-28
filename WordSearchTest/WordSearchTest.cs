@@ -30,10 +30,18 @@ namespace WordSearchTest
 
         }
         [TestMethod]
-        public void GetSearchStringIndexTest()
+        public void GetSearchForwardStringIndexTest()
         {
             WordSearch wordSearch = new WordSearch();
-            var result = wordSearch.GetSearchStringIndex("John", "dfJohnxxx");
+            var result = wordSearch.GetSearchForwardBackStringIndex("John", "dfJohnxxx");
+            Assert.AreEqual(2, result);
+
+        }
+        [TestMethod]
+        public void GetSearchBackStringIndexTest()
+        {
+            WordSearch wordSearch = new WordSearch();
+            var result = wordSearch.GetSearchForwardBackStringIndex("nhoj", "dfnhojxxx");
             Assert.AreEqual(2, result);
 
         }
@@ -85,19 +93,35 @@ namespace WordSearchTest
 
         }
         [TestMethod]
-        public void CalculateDownCorrdinatesTest()
-        {
-            WordSearch wordSearch = new WordSearch();
-            string result = wordSearch.CalculateDownCorrdinates(7, 2);
-            Assert.AreEqual("(1,1),(1,2)", result);
-
-        }
-        [TestMethod]
         public void GenerateUpOutputTest()
         {
             WordSearch wordSearch = new WordSearch();
             string result = wordSearch.GenerateUpOutput("IT", "IBTDIF" + "NHIJXT");
             Assert.AreEqual("JOHN: (0,0),(0,1)", result);
+
+        }
+        [TestMethod]
+        public void GenerateDiagDownOutputTest()
+        {
+            WordSearch wordSearch = new WordSearch();
+            string result = wordSearch.GenerateDiagDownOutPut("IT", "IBIDCF" + "NHJTXC");
+            Assert.AreEqual("IT: (2,0),(3,1)", result);
+
+        }
+        [TestMethod]
+        public void GenerateDiagUpOutputTest()
+        {
+            WordSearch wordSearch = new WordSearch();
+            string result = wordSearch.GenerateDiagUpOutput("IT", "IBTDIF" + "NHJIXT");
+            Assert.AreEqual("IT: (3,1),(2,0)", result);
+
+        }
+        [TestMethod]
+        public void CalculateDownCorrdinatesTest()
+        {
+            WordSearch wordSearch = new WordSearch();
+            string result = wordSearch.CalculateDownCorrdinates(7, 2);
+            Assert.AreEqual("(1,1),(1,2)", result);
 
         }
         [TestMethod]
