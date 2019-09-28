@@ -21,9 +21,18 @@ namespace WordSearchLibrary
         {
             return true;
         }
-        public bool DownSearchStringsMatch(string stringUsedToSearch, string stringUpSearched)
+        public bool DownSearchStringsMatch(string stringUsedToSearch, string stringDownSearched)
         {
             return true;
         }
+        public bool DiagUpSearchStringsMatch(string stringUsedToSearch, string stringDiagUpSearched)
+        {
+            return true;
+        }
+        public bool DiagDownSearchStringsMatch(string stringUsedToSearch, string stringDiagDownSearched)
+        {
+            return true;
+        }
+
     }
 }

@@ -42,5 +42,21 @@ namespace WordSearchTest
             Assert.AreEqual(true, result);
         }
 
+        [TestMethod]
+        public void DiagUpStringMatchTest()
+        {
+            WordSearch wordSearch = new WordSearch();
+            bool result = wordSearch.DiagUpSearchStringsMatch("Cindy", "Cindy");
+            Assert.AreEqual(true, result);
+        }
+
+        [TestMethod]
+        public void DiagDownStringMatchTest()
+        {
+            WordSearch wordSearch = new WordSearch();
+            bool result = wordSearch.DiagDownSearchStringsMatch("John", "John");
+            Assert.AreEqual(true, result);
+        }
+
     }
 }
