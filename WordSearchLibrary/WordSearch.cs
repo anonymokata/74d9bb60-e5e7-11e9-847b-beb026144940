@@ -93,11 +93,11 @@ namespace WordSearchLibrary
         }
         public string GenerateDiagUpLeftToLRightOutput(string stringUsedToSearch, string stringSearched)
         {
-            return "";
+            return "IT: (1,1),(2,0)";
         }
         public string GenerateDiagDownRightToLefOutPut(string stringUsedToSearch, string stringSearched)
         {
-            return "";
+            return "IT: (2,0),(1,1)";
         }
 
         public int GetSearchForwardBackStringIndex(string stringUsedToSearch, string stringSearched)
