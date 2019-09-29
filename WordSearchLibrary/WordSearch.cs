@@ -28,48 +28,76 @@ namespace WordSearchLibrary
         public string GenerateForwardOutput(string stringUsedToSearch, string stringSearched)
         {
             int offset = GetSearchForwardBackStringIndex(stringUsedToSearch, stringSearched);
-            string   coordinates = CalculateCoordinates.CalculateForwardCorrdinates(offset, stringUsedToSearch.Length);
+            if (offset != -1)
+            {
+                string coordinates = CalculateCoordinates.CalculateForwardCorrdinates(offset, stringUsedToSearch.Length);
 
-            return stringUsedToSearch + ": " + coordinates;
+                return stringUsedToSearch + ": " + coordinates;
+            }
+            return offset.ToString();
         }
 
         public string GenerateReverseOutput(string stringUsedToSearch, string stringSearched)
         {
             string reverseString = ReveseOrderOfString(stringUsedToSearch);
             int offset = GetSearchForwardBackStringIndex(reverseString, stringSearched);
-            string coordinates = CalculateCoordinates.CalculateReveseCorrdinates(offset, stringUsedToSearch.Length);
-            return stringUsedToSearch + ": " + coordinates;
+            if (offset != -1)
+            {
+                string coordinates = CalculateCoordinates.CalculateReveseCorrdinates(offset, stringUsedToSearch.Length);
+                return stringUsedToSearch + ": " + coordinates;
+            }
+            return offset.ToString();
 
         }
         public string GenerateDownOutPut(string stringUsedToSearch, string stringSearched)
         {
             int offset = GetSearchDownUpStringIndex(stringUsedToSearch, stringSearched);
-            string coordinates = CalculateCoordinates.CalculateDownCorrdinates(offset, stringUsedToSearch.Length);
-
-            return stringUsedToSearch + ": " + coordinates;
+            if (offset != -1)
+            {
+                string coordinates = CalculateCoordinates.CalculateDownCorrdinates(offset, stringUsedToSearch.Length);
+                return stringUsedToSearch + ": " + coordinates;
+            }
+            return offset.ToString();
         }
         public string GenerateUpOutput(string stringUsedToSearch, string stringSearched)
         {
             string reverseString = ReveseOrderOfString(stringUsedToSearch);
             int offset = GetSearchDownUpStringIndex(reverseString, stringSearched);
-            string coordinates = CalculateCoordinates.CalculateUpCorrdinates(offset, stringUsedToSearch.Length);
-
-            return stringUsedToSearch + ": " + coordinates;
+            if (offset != -1)
+            {
+                string coordinates = CalculateCoordinates.CalculateUpCorrdinates(offset, stringUsedToSearch.Length);
+                return stringUsedToSearch + ": " + coordinates;
+            }
+            return offset.ToString();
         }
-        public string GenerateDiagDownOutPut(string stringUsedToSearch, string stringSearched)
+        public string GenerateDiagDownLeftToRightOutPut(string stringUsedToSearch, string stringSearched)
         {
             int offset = GetSearchDiagDownUpStringIndex(stringUsedToSearch, stringSearched);
-            string coordinates = CalculateCoordinates.CalculateDiagDownCorrdinates(offset, stringUsedToSearch.Length);
-
-            return stringUsedToSearch + ": " + coordinates;
+            if (offset != -1)
+            {
+                string coordinates = CalculateCoordinates.CalculateDiagDownCorrdinates(offset, stringUsedToSearch.Length);
+                return stringUsedToSearch + ": " + coordinates;
+            }
+            return offset.ToString();
         }
-        public string GenerateDiagUpOutput(string stringUsedToSearch, string stringSearched)
+        public string GenerateDiagUpRightToLeftOutput(string stringUsedToSearch, string stringSearched)
         {
             string reverseString = ReveseOrderOfString(stringUsedToSearch);
             int offset = GetSearchDiagDownUpStringIndex(reverseString, stringSearched);
-            string coordinates = CalculateCoordinates.CalculateDiagUpCorrdinates(offset, stringUsedToSearch.Length);
-
-            return stringUsedToSearch + ": " + coordinates;
+            if (offset != -1)
+            {
+                string coordinates = CalculateCoordinates.CalculateDiagUpCorrdinates(offset, stringUsedToSearch.Length);
+                return stringUsedToSearch + ": " + coordinates;
+            }
+            return offset.ToString();
+        }
+        public string GenerateDiagUpLeftToLRightOutput(string stringUsedToSearch, string stringSearched)
+        {
+            return "";
+        }
+        public string GenerateDiagDownRightToLefOutPut(string stringUsedToSearch, string stringSearched)
+        {
+            return "";
         }
 
         public int GetSearchForwardBackStringIndex(string stringUsedToSearch, string stringSearched)

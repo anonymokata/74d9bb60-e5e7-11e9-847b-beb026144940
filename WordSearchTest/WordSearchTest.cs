@@ -126,19 +126,35 @@ namespace WordSearchTest
 
         }
         [TestMethod]
-        public void GenerateDiagDownOutputTest()
+        public void GenerateDiagDownLeftToRightDownOutputTest()
         {
             WordSearch wordSearch = new WordSearch(6, 6);
-            string result = wordSearch.GenerateDiagDownOutPut("IT", "IBIDCF" + "NHJTXC");
+            string result = wordSearch.GenerateDiagDownLeftToRightOutPut("IT", "IBIDCF" + "NHJTXC");
             Assert.AreEqual("IT: (2,0),(3,1)", result);
 
         }
         [TestMethod]
-        public void GenerateDiagUpOutputTest()
+        public void GenerateDiagUpRightToLeftOutputTest()
         {
             WordSearch wordSearch = new WordSearch(6, 6);
-            string result = wordSearch.GenerateDiagUpOutput("IT", "IBTDIF" + "NHJIXT");
+            string result = wordSearch.GenerateDiagUpRightToLeftOutput("IT", "IBTDIF" + "NHJIXT");
             Assert.AreEqual("IT: (3,1),(2,0)", result);
+
+        }
+        [TestMethod]
+        public void GenerateDiagDownRightToLeftOutputTest()
+        {
+            WordSearch wordSearch = new WordSearch(6, 6);
+            string result = wordSearch.GenerateDiagDownRightToLefOutPut("IT", "XBIDCF" + "NTHJXC");
+            Assert.AreEqual("IT: (2,0),(1,1)", result);
+
+        }
+        [TestMethod]
+        public void GenerateDiagUpLeftToRightOutputTest()
+        {
+            WordSearch wordSearch = new WordSearch(6, 6);
+            string result = wordSearch.GenerateDiagUpLeftToLRightOutput("IT", "XBTDIF" + "NIHJXT");
+            Assert.AreEqual("IT: (1,1),(2,0)", result);
 
         }
         [TestMethod]
