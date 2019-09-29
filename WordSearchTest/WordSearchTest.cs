@@ -177,15 +177,15 @@ namespace WordSearchTest
         public void CalculateDiagDownLeftToRightCorrdinatesTest()
         {
             CalculateCoordinates coordinates = new CalculateCoordinates(6, 6);
-            string result = coordinates.CalculateDiagDownLeftToRightCorrdinates(2, 2);
-            Assert.AreEqual("(1,1),(2,2)", result);
+            string result = coordinates.CalculateDiagDownLeftToRightCorrdinates(1, 2);
+            Assert.AreEqual("(1,0),(2,1)", result);
 
         }
         [TestMethod]
         public void CalculateDiagUpRightToLeftCorrdinatesTest()
         {
             CalculateCoordinates coordinates = new CalculateCoordinates(6, 6);
-            string result = coordinates.CalculateDiagUpRightToLeftCorrdinates(7, 2);
+            string result = coordinates.CalculateDiagUpRightToLeftCorrdinates(0, 2);
             Assert.AreEqual("(1,1),(0,0)", result);
 
         }
@@ -223,21 +223,36 @@ namespace WordSearchTest
         }
 
         [TestMethod]
-        public void SearchDiagDownMatchTest()
+        public void SearchDiagDownRightToLeftMatchTest()
         {
             WordSearch wordSearch = new WordSearch(6, 6);
-            bool result = wordSearch.SeachDiagDown(2, "IT", "XBIDCF" + "NHJTXC");
+            bool result = wordSearch.SeachDiagDownRightToLeft(2, "IT", "XBIDCF" + "NHJTXC");
             Assert.AreEqual(true, result);
 
         }
         [TestMethod]
-        public void SearchDiagUpMatchTest()
+        public void SearchDiagUpLeftToRightMatchTest()
         {
             WordSearch wordSearch = new WordSearch(6, 6);
-            bool result = wordSearch.SeachDiagUp(9, "IT", "XBTDAF" + "NHJIXT");
+            bool result = wordSearch.SeachDiagUpLeftToRight(9, "IT", "XBTDAF" + "NHJIXT");
             Assert.AreEqual(true, result);
 
         }
+        [TestMethod]
+        public void GetSearchStringIndexTest()
+        {
+            WordSearch wordSearch = new WordSearch(6, 6);
+            int result = wordSearch.GetSearchStringIndex("IT", "XBTDAF" + "NHJIXT");
+            Assert.AreEqual(9, result);
 
+        }
+        [TestMethod]
+        public void GetPositionOfNextCharInStringTest()
+        {
+            WordSearch wordSearch = new WordSearch(6, 6);
+            int result = wordSearch.GetPositionOfNextCharInString(0,"IT", "XBTDAF" + "NHJIXT");
+            Assert.AreEqual(1, result);
+
+        }
     }
 }

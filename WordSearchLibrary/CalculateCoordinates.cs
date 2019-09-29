@@ -171,7 +171,7 @@ namespace WordSearchLibrary
                 {
                     coordinates += ",";
                 }
-                coordinates += "(" + (col + i).ToString() + "," + (i + row).ToString() + ")";
+                coordinates += "(" + (col - i).ToString() + "," + (i+row).ToString() + ")";
             }
             return coordinates;
         }

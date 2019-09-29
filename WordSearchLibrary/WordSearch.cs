@@ -97,9 +97,14 @@ namespace WordSearchLibrary
         }
         public string GenerateDiagDownRightToLefOutPut(string stringUsedToSearch, string stringSearched)
         {
-            return "IT: (2,0),(1,1)";
+            int offset = GetSearchDiagDownUpStringIndex(stringUsedToSearch, stringSearched);
+            if (offset != -1)
+            {
+                string coordinates = CalculateCoordinates.CalculateDiagDownRightToLeftCorrdinates(offset, stringUsedToSearch.Length);
+                return stringUsedToSearch + ": " + coordinates;
+            }
+            return offset.ToString();
         }
-
         public int GetSearchForwardBackStringIndex(string stringUsedToSearch, string stringSearched)
         {
             for (int  i=0; i < stringSearched.Length; i++)
@@ -135,7 +140,7 @@ namespace WordSearchLibrary
             {
                 int index = FindCharOffSet(i, stringUsedToSearch[0], stringSearched);
 
-                if (SeachDiagDown(index, stringUsedToSearch, stringSearched))
+                if (SeachDiagDownRightToLeft(index, stringUsedToSearch, stringSearched))
                 {
                     return index;
                 }
@@ -170,7 +175,7 @@ namespace WordSearchLibrary
             }
             return true;
         }
-        public bool SeachDiagDown(int index, string stringUsedToSearch, string stringSearched)
+        public bool SeachDiagDownRightToLeft(int index, string stringUsedToSearch, string stringSearched)
         {
             int offset = 0;
             for (int i = 0; i < stringUsedToSearch.Length; i++)
@@ -190,7 +195,7 @@ namespace WordSearchLibrary
             }
             return true;
         }
-        public bool SeachDiagUp(int index, string stringUsedToSearch, string stringSearched)
+        public bool SeachDiagUpLeftToRight(int index, string stringUsedToSearch, string stringSearched)
         {
             int offset = 0;
             for (int i = 0; i < stringUsedToSearch.Length; i++)
@@ -223,6 +228,17 @@ namespace WordSearchLibrary
         {
             int index = stringSearched.IndexOf(charUsedToSearch, offset);
             return index;
+        }
+        public int GetPositionOfNextCharInString(int index, string stringUsedToSearch, string stringSearched)
+        {
+
+            return 1;
+        }
+        public int GetSearchStringIndex(string stringUsedToSearch, string stringSearched)
+        {
+            int index = FindCharOffSet(0, stringUsedToSearch[0], stringSearched);
+
+            return 1;
         }
 
     }

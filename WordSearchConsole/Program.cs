@@ -11,7 +11,8 @@ namespace WordSearchLibrary
             string SearchGrid = "";
             int cols = 0;
             int rowcnt = 0;
-            //WordSearch wordSearch = new WordSearch();
+            WordSearch wordSearch = new WordSearch(6,6);
+            string result = wordSearch.GenerateDiagDownRightToLefOutPut("IT", "XBIDCF" + "NTHJXC");
             using (var reader = new StreamReader(@"c:\WordSearchText.csv"))
             {
                 string SearchValues = reader.ReadLine();
@@ -30,7 +31,7 @@ namespace WordSearchLibrary
                     string[] values = line.Split(',');
                     SearchGrid += string.Join("", values);
                 }
-                WordSearch wordSearch = new WordSearch(cols, rowcnt);
+        //        WordSearch wordSearch = new WordSearch(cols, rowcnt);
                 foreach(var value in SearchValuesArray)
                 {
 
