@@ -5,13 +5,20 @@ namespace WordSearchLibrary
 {
     public class WordSearch
     {
-        //private string[] stringUseToSeach = { "BOB", "FRED", "RICH", "JOHN", "TED","DAN"};
-        //private string stringToSearch = "RBOBWG" +
-        //                                "IBDERF" +
-        //                                "CBOBWN" +
-        //                                "HBDBWH" +
-        //                                "AEOAWO" +
-        //                                "TBOBNJ";
+        public struct GridPosition
+        {
+            public int up;
+            public int down;
+            public int back;
+            public int foward;
+            public int RLUpDiag;
+            public int LRDownDiag;
+            public int LRUpDiag;
+            public int RLDownDiag;
+        }
+
+
+
         private readonly int rows;
         private readonly int cols;
         private CalculateCoordinates CalculateCoordinates { get; set; }
@@ -107,11 +114,12 @@ namespace WordSearchLibrary
         }
         public int GetSearchForwardBackStringIndex(string stringUsedToSearch, string stringSearched)
         {
-            for (int  i=0; i < stringSearched.Length; i++)
+            for (int i = 0; i < stringSearched.Length; i++)
             {
                 int index = FindCharOffSet(i, stringUsedToSearch[0], stringSearched);
                 string results = stringSearched.Substring(index, stringUsedToSearch.Length);
-                if (stringUsedToSearch == results){
+                if (stringUsedToSearch == results)
+                {
                     return index;
                 }
                 i = i + index;
@@ -182,7 +190,7 @@ namespace WordSearchLibrary
             {
                 if (i != 0)
                 {
-                    offset = index + (rows * i)+1;
+                    offset = index + (rows * i) + 1;
                 }
                 else
                 {
@@ -218,21 +226,22 @@ namespace WordSearchLibrary
         public string ReveseOrderOfString(string stringUsedToSearch)
         {
             string reverseString = "";
-            for(int i= stringUsedToSearch.Length-1; 0 <= i; i--)
+            for (int i = stringUsedToSearch.Length - 1; 0 <= i; i--)
             {
                 reverseString += stringUsedToSearch[i];
             }
             return reverseString;
         }
-        public int FindCharOffSet(int offset,char charUsedToSearch, string stringSearched)
+        public int FindCharOffSet(int offset, char charUsedToSearch, string stringSearched)
         {
             int index = stringSearched.IndexOf(charUsedToSearch, offset);
             return index;
         }
-        public int GetPositionOfNextCharInString(int index, string stringUsedToSearch, string stringSearched)
+        public GridPosition GetPositionOfNextCharInString(int index, string stringUsedToSearch, string stringSearched)
         {
+            GridPosition gridPos = new GridPosition();
 
-            return 1;
+            return gridPos;
         }
         public int GetSearchStringIndex(string stringUsedToSearch, string stringSearched)
         {
@@ -240,6 +249,14 @@ namespace WordSearchLibrary
 
             return 1;
         }
-
+        //public bool SearchForward(int index, string stringUsedToSearch, string stringSearched)
+        //public bool Searchbck(int index, string stringUsedToSearch, string stringSearched)
+        //public bool SearchUp(int index, string stringUsedToSearch, string stringSearched)
+        //public bool SearchDown(int index, string stringUsedToSearch, string stringSearched)
+        //public bool SearchDiagUpRightToLeft(int index, string stringUsedToSearch, string stringSearched)
+        //public bool SearchDiagUpLeftToRight(int index, string stringUsedToSearch, string stringSearched)
+        //public bool SearchDiagDownRightToLeft(int index, string stringUsedToSearch, string stringSearched)
+        //public bool SearchDiagDownLeftToRight(int index, string stringUsedToSearch, string stringSearched)
     }
 }
+

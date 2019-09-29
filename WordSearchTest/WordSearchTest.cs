@@ -250,8 +250,24 @@ namespace WordSearchTest
         public void GetPositionOfNextCharInStringTest()
         {
             WordSearch wordSearch = new WordSearch(6, 6);
-            int result = wordSearch.GetPositionOfNextCharInString(0,"IT", "XBTDAF" + "NHJIXT");
-            Assert.AreEqual(1, result);
+            WordSearch.GridPosition result = wordSearch.GetPositionOfNextCharInString(0, "IT", "XBTDAF" + "NHJIXT");
+            Assert.AreEqual(1, result.LRUpDiag);
+
+        }
+        [TestMethod]
+        public void CheckSearchLimitsSearchForwardTest()
+        {
+            WordSearchLibrary.Search.SearchForward searchForward = new WordSearchLibrary.Search.SearchForward(6, 6);
+            bool result = searchForward.CheckSearchLimits(0, "IT", "XBTDAF" + "NHJIXT");
+            Assert.AreEqual(true, result);
+
+        }
+        [TestMethod]
+        public void SearchStringResultSearchForwardTest()
+        {
+            WordSearchLibrary.Search.SearchForward searchForward = new WordSearchLibrary.Search.SearchForward(6, 6);
+            bool result = searchForward.SearchStringResult(0, "IT", "XBITAF" + "NHJTXX");
+            Assert.AreEqual(true, result);
 
         }
     }
