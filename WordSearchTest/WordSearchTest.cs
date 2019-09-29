@@ -258,7 +258,7 @@ namespace WordSearchTest
         public void CheckSearchLimitsSearchForwardTest()
         {
             WordSearchLibrary.Search.SearchForward searchForward = new WordSearchLibrary.Search.SearchForward(6, 6);
-            bool result = searchForward.CheckSearchLimits(0, "IT", "XBTDAF" + "NHJIXT");
+            bool result = searchForward.CheckSearchLimits(2, "IT", "XBITAF" + "NHJTXX");
             Assert.AreEqual(true, result);
 
         }
@@ -266,7 +266,23 @@ namespace WordSearchTest
         public void SearchStringResultSearchForwardTest()
         {
             WordSearchLibrary.Search.SearchForward searchForward = new WordSearchLibrary.Search.SearchForward(6, 6);
-            bool result = searchForward.SearchStringResult(0, "IT", "XBITAF" + "NHJTXX");
+            bool result = searchForward.SearchStringResult(2, "IT", "XBITAF" + "NHJTXX");
+            Assert.AreEqual(true, result);
+
+        }
+        [TestMethod]
+        public void CheckSearchLimitsSearchBackTest()
+        {
+            WordSearchLibrary.Search.SearchBack searchBack = new WordSearchLibrary.Search.SearchBack(6, 6);
+            bool result = searchBack.CheckSearchLimits(3, "IT", "XBTIAF" + "NHJTXX");
+            Assert.AreEqual(true, result);
+
+        }
+        [TestMethod]
+        public void SearchStringResultSearcBackTest()
+        {
+            WordSearchLibrary.Search.SearchBack searchBack = new WordSearchLibrary.Search.SearchBack(6, 6);
+            bool result = searchBack.SearchStringResult(3, "IT", "XBTIAF" + "NHJTXX");
             Assert.AreEqual(true, result);
 
         }

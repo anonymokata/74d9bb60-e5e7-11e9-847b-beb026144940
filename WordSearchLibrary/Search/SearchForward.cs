@@ -25,11 +25,15 @@ namespace WordSearchLibrary.Search
         }
         public override bool SearchStringResult(int index, string searchValue, string toSearch)
         {
-            //if (CheckSearchLimits(index, searchValue, toSearch)
-            //{
-
-            //}
-            return true;
+            if (CheckSearchLimits(index, searchValue, toSearch))
+            {
+                string value = toSearch.Substring(index, searchValue.Length);
+                if (value.Contains(searchValue))
+                {
+                    return true;
+                }
+            }
+            return false;
         }
    }
 }

@@ -18,6 +18,15 @@ namespace WordSearchLibrary
         {
             return true;
         }
+        public string ReveseOrderOfString(string stringUsedToSearch)
+        {
+            string reverseString = "";
+            for (int i = stringUsedToSearch.Length - 1; 0 <= i; i--)
+            {
+                reverseString += stringUsedToSearch[i];
+            }
+            return reverseString;
+        }
 
 
     }
