@@ -174,18 +174,34 @@ namespace WordSearchTest
 
         }
         [TestMethod]
-        public void CalculateDiagDownCorrdinatesTest()
+        public void CalculateDiagDownLeftToRightCorrdinatesTest()
         {
             CalculateCoordinates coordinates = new CalculateCoordinates(6, 6);
-            string result = coordinates.CalculateDiagDownCorrdinates(7, 2);
+            string result = coordinates.CalculateDiagDownLeftToRightCorrdinates(2, 2);
             Assert.AreEqual("(1,1),(2,2)", result);
 
         }
         [TestMethod]
-        public void CalculateDiagUpCorrdinatesTest()
+        public void CalculateDiagUpRightToLeftCorrdinatesTest()
         {
             CalculateCoordinates coordinates = new CalculateCoordinates(6, 6);
-            string result = coordinates.CalculateDiagUpCorrdinates(0, 2);
+            string result = coordinates.CalculateDiagUpRightToLeftCorrdinates(7, 2);
+            Assert.AreEqual("(1,1),(0,0)", result);
+
+        }
+        [TestMethod]
+        public void CalculateDiagDownRightToLeftCorrdinatesTest()
+        {
+            CalculateCoordinates coordinates = new CalculateCoordinates(6, 6);
+            string result = coordinates.CalculateDiagDownRightToLeftCorrdinates(2, 2);
+            Assert.AreEqual("(2,0),(1,1)", result);
+
+        }
+        [TestMethod]
+        public void CalculateDiagUpLeftToRightCorrdinatesTest()
+        {
+            CalculateCoordinates coordinates = new CalculateCoordinates(6, 6);
+            string result = coordinates.CalculateDiagUpLeftToRighCorrdinates(7, 2);
             Assert.AreEqual("(1,1),(0,0)", result);
 
         }

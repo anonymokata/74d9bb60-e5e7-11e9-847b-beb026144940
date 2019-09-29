@@ -75,7 +75,7 @@ namespace WordSearchLibrary
             int offset = GetSearchDiagDownUpStringIndex(stringUsedToSearch, stringSearched);
             if (offset != -1)
             {
-                string coordinates = CalculateCoordinates.CalculateDiagDownCorrdinates(offset, stringUsedToSearch.Length);
+                string coordinates = CalculateCoordinates.CalculateDiagDownLeftToRightCorrdinates(offset, stringUsedToSearch.Length);
                 return stringUsedToSearch + ": " + coordinates;
             }
             return offset.ToString();
@@ -86,7 +86,7 @@ namespace WordSearchLibrary
             int offset = GetSearchDiagDownUpStringIndex(reverseString, stringSearched);
             if (offset != -1)
             {
-                string coordinates = CalculateCoordinates.CalculateDiagUpCorrdinates(offset, stringUsedToSearch.Length);
+                string coordinates = CalculateCoordinates.CalculateDiagUpRightToLeftCorrdinates(offset, stringUsedToSearch.Length);
                 return stringUsedToSearch + ": " + coordinates;
             }
             return offset.ToString();
