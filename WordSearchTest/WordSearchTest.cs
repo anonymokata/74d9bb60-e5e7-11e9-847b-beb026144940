@@ -279,11 +279,59 @@ namespace WordSearchTest
 
         }
         [TestMethod]
-        public void SearchStringResultSearcBackTest()
+        public void SearchStringResultSearchBackTest()
         {
             WordSearchLibrary.Search.SearchBack searchBack = new WordSearchLibrary.Search.SearchBack(6, 6);
             bool result = searchBack.SearchStringResult(3, "IT", "XBTIAF" + "NHJTXX");
             Assert.AreEqual(true, result);
+
+        }
+        [TestMethod]
+        public void CheckSearchLimitsSearchUpTest()
+        {
+            WordSearchLibrary.Search.SearchUp searchUp = new WordSearchLibrary.Search.SearchUp(6, 6);
+            bool result = searchUp.CheckSearchLimits(9, "IT", "XBFTAF" + "NHJIXX");
+            Assert.AreEqual(true, result);
+
+        }
+        [TestMethod]
+        public void SearchStringResultSearchUpTest()
+        {
+            WordSearchLibrary.Search.SearchUp searchUp = new WordSearchLibrary.Search.SearchUp(6, 6);
+            bool result = searchUp.SearchStringResult(9, "IT", "XBFTAF" + "NHJIXX");
+            Assert.AreEqual(true, result);
+
+        }
+        [TestMethod]
+        public void SubStringGetSearchUpTest()
+        {
+            WordSearchLibrary.Search.SearchUp searchUp = new WordSearchLibrary.Search.SearchUp(6, 6);
+            string result = searchUp.SubStringGet(9, 2, "XBFTAF" + "NHJIXX");
+            Assert.AreEqual("IT", result);
+
+        }
+        [TestMethod]
+        public void CheckSearchLimitsSearchDownTest()
+        {
+            WordSearchLibrary.Search.SearchDown searchDown = new WordSearchLibrary.Search.SearchDown(6, 6);
+            bool result = searchDown.CheckSearchLimits(3, "IT", "XBFIAF" + "NHJTXX");
+            Assert.AreEqual(true, result);
+
+        }
+        [TestMethod]
+        public void SearchStringResultSearchDownTest()
+        {
+            WordSearchLibrary.Search.SearchDown searchDown = new WordSearchLibrary.Search.SearchDown(6, 6);
+            bool result = searchDown.SearchStringResult(3, "IT", "XBFIAF" + "NHJTXX");
+            Assert.AreEqual(true, result);
+
+        }
+        [TestMethod]
+        public void SubStringGetSearchDownTest()
+        {
+            WordSearchLibrary.Search.SearchDown searchDown = new WordSearchLibrary.Search.SearchDown(6, 6);
+            string result = searchDown.SubStringGet(3, 2, "XBFIAF" + "NHJTXX");
+            Assert.AreEqual("IT", result);
 
         }
     }

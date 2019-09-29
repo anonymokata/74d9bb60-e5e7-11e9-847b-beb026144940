@@ -11,10 +11,10 @@ namespace WordSearchLibrary
             string SearchGrid = "";
             int cols = 0;
             int rowcnt = 0;
-            WordSearchLibrary.Search.SearchBack searchBack = new WordSearchLibrary.Search.SearchBack(6, 6);
-            bool result = searchBack.SearchStringResult(3, "IT", "XBTIAF" + "NHJTXX");
-            WordSearch wordSearch = new WordSearch(6,6);
-            string result10 = wordSearch.GenerateDiagDownRightToLefOutPut("IT", "XBIDCF" + "NTHJXC");
+            WordSearchLibrary.Search.SearchUp searchUp = new WordSearchLibrary.Search.SearchUp(6, 6);
+            bool result1 = searchUp.SearchStringResult(9, "IT", "XBFTAF" + "NHJIXX");
+            WordSearchLibrary.Search.SearchDown searchDown = new WordSearchLibrary.Search.SearchDown(6, 6);
+            string result = searchDown.SubStringGet(3, 2, "XBFIAF" + "NHJTXX");
             using (var reader = new StreamReader(@"c:\WordSearchText.csv"))
             {
                 string SearchValues = reader.ReadLine();
