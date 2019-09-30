@@ -13,7 +13,7 @@ namespace WordSearchLibrary.Search
         }
         public override bool CheckSearchLimits(int index, string searchValue, string toSearch)
         {
-            if ((index + searchValue.Length) > toSearch.Length)
+            if ((index + searchValue.Length) >= toSearch.Length)
             {
                 return false;
             }

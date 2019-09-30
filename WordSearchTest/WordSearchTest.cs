@@ -334,5 +334,37 @@ namespace WordSearchTest
             Assert.AreEqual("IT", result);
 
         }
+        [TestMethod]
+        public void CheckSearchLimitsSearchDiagDownRightToLeftTest()
+        {
+            WordSearchLibrary.Search.SearchDiagDownRightToLeft searchDiagDownRightToLeft = new WordSearchLibrary.Search.SearchDiagDownRightToLeft(6, 6);
+            bool result = searchDiagDownRightToLeft.CheckSearchLimits(3, "IT", "XBFIAF" + "NHTJXX");
+            Assert.AreEqual(true, result);
+
+        }
+        [TestMethod]
+        public void SubStringGetSearchDiagDownRightToLeftTest()
+        {
+            WordSearchLibrary.Search.SearchDiagDownRightToLeft searchDiagDownRightToLeft = new WordSearchLibrary.Search.SearchDiagDownRightToLeft(6, 6);
+            string result = searchDiagDownRightToLeft.SubStringGet(3, 2, "XBFIAF" + "NHTJXX");
+            Assert.AreEqual("IT", result);
+
+        }
+        [TestMethod]
+        public void CheckSearchLimitsSearchDiagDownLeftToRightTest()
+        {
+            WordSearchLibrary.Search.SearchDiagDownLeftToRight searchDiagDownLeftToRight = new WordSearchLibrary.Search.SearchDiagDownLeftToRight(6, 6);
+            bool result = searchDiagDownLeftToRight.CheckSearchLimits(2, "IT", "XBIFAF" + "NHJTXX");
+            Assert.AreEqual(true, result);
+
+        }
+        [TestMethod]
+        public void SubStringGetSearchDiagDownLeftToRightTest()
+        {
+            WordSearchLibrary.Search.SearchDiagDownLeftToRight searchDiagDownLeftToRight = new WordSearchLibrary.Search.SearchDiagDownLeftToRight(6, 6);
+            string result = searchDiagDownLeftToRight.SubStringGet(2, 2, "XBIFAF" + "NHJTXX");
+            Assert.AreEqual("IT", result);
+
+        }
     }
 }
