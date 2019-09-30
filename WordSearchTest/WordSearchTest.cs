@@ -200,24 +200,48 @@ namespace WordSearchTest
         public void CheckSearchLimitsSearchDiagUpLeftToRightTest()
         {
             WordSearchLibrary.Search.SearchDiagUpLeftToRight searchDiagUpLeftToRight = new WordSearchLibrary.Search.SearchDiagUpLeftToRight(6, 6);
-            bool result = searchDiagUpLeftToRight.CheckSearchLimits(9, "IT", "XBTFAF" + "NHJIXX");
+            bool result = searchDiagUpLeftToRight.CheckSearchLimits(7, "IT", "XBTFAF" + "NIHJXX");
             Assert.AreEqual(true, result);
+
+        }
+        [TestMethod]
+        public void SearchStringResultSearchDiagUpLeftToRightTest()
+        {
+            WordSearchLibrary.Search.SearchDiagUpLeftToRight searchDiagUpLeftToRight = new WordSearchLibrary.Search.SearchDiagUpLeftToRight(6, 6);
+            string result = searchDiagUpLeftToRight.SearchStringResult(7, "IT", "XBTFAF" + "NIHJXX");
+            Assert.AreEqual("IT: (1,1),(2,0)", result);
 
         }
         [TestMethod]
         public void SubStringGetSearchDiagUpLeftToRightTest()
         {
             WordSearchLibrary.Search.SearchDiagUpLeftToRight searchDiagUpLeftToRight = new WordSearchLibrary.Search.SearchDiagUpLeftToRight(6, 6);
-            string result = searchDiagUpLeftToRight.SubStringGet(9, 2, "XBTFAF" + "NHJIXX");
+            string result = searchDiagUpLeftToRight.SubStringGet(7, 2, "XBTFAF" + "NIHJXX");
             Assert.AreEqual("IT", result);
 
         }
         [TestMethod]
-        public void CheckSearchLimitsSearchDiagUpRightToLefttTest()
+        public void CalculateCorrdinatestSearchDiagUpLeftToRightTest()
+        {
+            WordSearchLibrary.Search.SearchDiagUpLeftToRight searchDiagUpLeftToRight = new WordSearchLibrary.Search.SearchDiagUpLeftToRight(6, 6);
+            string result = searchDiagUpLeftToRight.CalculateCorrdinates(7, 2);
+            Assert.AreEqual("(1,1),(2,0)", result);
+
+        }
+        [TestMethod]
+        public void CheckSearchLimitsSearchDiagUpRightToLeftTest()
         {
             WordSearchLibrary.Search.SearchDiagUpRightToLeft searchDiagUpRightToLeft = new WordSearchLibrary.Search.SearchDiagUpRightToLeft(6, 6);
-            bool result = searchDiagUpRightToLeft.CheckSearchLimits(8, "IT", "XTBFAF" + "NHIJXX");
+            bool result = searchDiagUpRightToLeft.CheckSearchLimits(9, "IT", "XBTFAF" + "NHJIXX");
             Assert.AreEqual(true, result);
+
+        }
+        [TestMethod]
+        public void SearchStringResultSearchDiagUpRightToLeftTest()
+        {
+            WordSearchLibrary.Search.SearchDiagUpRightToLeft searchDiagUpRightToLeft = new WordSearchLibrary.Search.SearchDiagUpRightToLeft(6, 6);
+            string result = searchDiagUpRightToLeft.SearchStringResult(8, "IT", "XTBFAF" + "NHIJXX");
+            Assert.AreEqual("IT: (2,1),(1,0)", result);
 
         }
         [TestMethod]
@@ -226,6 +250,14 @@ namespace WordSearchTest
             WordSearchLibrary.Search.SearchDiagUpRightToLeft searchDiagUpRightToLeft = new WordSearchLibrary.Search.SearchDiagUpRightToLeft(6, 6);
             string result = searchDiagUpRightToLeft.SubStringGet(8, 2, "XTBFAF" + "NHIJXX");
             Assert.AreEqual("IT", result);
+
+        }
+        [TestMethod]
+        public void CalculateCorrdinatestSearchDiagUpRightToLeftTest()
+        {
+            WordSearchLibrary.Search.SearchDiagUpRightToLeft searchDiagUpRightToLeft = new WordSearchLibrary.Search.SearchDiagUpRightToLeft(6, 6);
+            string result = searchDiagUpRightToLeft.CalculateCorrdinates(8, 2);
+            Assert.AreEqual("(2,1),(1,0)", result);
 
         }
     }
