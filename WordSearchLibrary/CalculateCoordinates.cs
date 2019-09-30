@@ -14,29 +14,6 @@ namespace WordSearchLibrary
             Cols = columnSize;
             rows = rowSize;
         }
-         public string CalculateDiagDownLeftToRightCorrdinates(int Offset, int lengthToSearch)
-        {
-            int row = (Offset / Cols);
-            int col = 0;
-            if (Offset >= Cols)
-            {
-                col = Offset - row * Cols;
-            }
-            else
-            {
-                col = Offset;
-            }
-            string coordinates = "";
-            for (int i = 0; i < lengthToSearch; i++)
-            {
-                if (i != 0)
-                {
-                    coordinates += ",";
-                }
-                coordinates += "(" + (col + i).ToString() + "," + (i + row).ToString() + ")";
-            }
-            return coordinates;
-        }
         public string CalculateDiagUpRightToLeftCorrdinates(int Offset, int lengthToSearch)
         {
             int row = (Offset / Cols);
