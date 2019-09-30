@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WordSearchLibrary
 {
-    public class SearchString
+    public class SearchEngine
     {
         public string coordinates;
         public int rowsSize;
@@ -18,19 +18,14 @@ namespace WordSearchLibrary
         {
             return "";
         }
-        public virtual bool SearchStringResult(int index, string searchValue, string toSearch)
+        public virtual string SearchStringResult(int index, string searchValue, string toSearch)
         {
-            if (CheckSearchLimits(index, searchValue, toSearch))
-            {
-                string value = SubStringGet(index, searchValue.Length, toSearch);
-                if (value.Contains(searchValue))
-                {
-                    return true;
-                }
-            }
-            return false;
+            return "";
         }
-
+        public virtual string CalculateCorrdinates(int Offset, int lengthToSearch)
+        {
+            return "";
+        }
         public string ReveseOrderOfString(string stringUsedToSearch)
         {
             string reverseString = "";

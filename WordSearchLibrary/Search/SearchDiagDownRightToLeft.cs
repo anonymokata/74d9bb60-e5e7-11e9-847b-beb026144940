@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WordSearchLibrary.Search
 {
-    public class SearchDiagDownRightToLeft : SearchString
+    public class SearchDiagDownRightToLeft : SearchEngine
     {
         public SearchDiagDownRightToLeft(int cols, int rows)
         {

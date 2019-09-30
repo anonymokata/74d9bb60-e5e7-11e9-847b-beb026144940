@@ -4,7 +4,7 @@ using System.Text;
 
 namespace WordSearchLibrary.Search
 {
-    public class SearchForward : SearchString
+    public class SearchForward : SearchEngine
     {
         public SearchForward(int cols, int rows)
         {
@@ -23,17 +23,41 @@ namespace WordSearchLibrary.Search
             }
             return true;
         }
-        public override bool SearchStringResult(int index, string searchValue, string toSearch)
+        public override string SearchStringResult(int index, string searchValue, string toSearch)
         {
             if (CheckSearchLimits(index, searchValue, toSearch))
             {
                 string value = toSearch.Substring(index, searchValue.Length);
                 if (value.Contains(searchValue))
                 {
-                    return true;
+                    string coordinates = CalculateCorrdinates(index, searchValue.Length);
+                    return searchValue + ": " + coordinates; ;
                 }
             }
-            return false;
+            return "";
         }
-   }
+        public override string CalculateCorrdinates(int Offset, int lengthToSearch)
+        {
+            int row = (Offset / this.rowsSize);
+            int col = 0;
+            if (Offset >= this.colSize)
+            {
+                col = Offset - row * this.colSize;
+            }
+            else
+            {
+                col = Offset;
+            }
+            string coordinates = "";
+            for (int i = 0; i < lengthToSearch; i++)
+            {
+                if (i != 0)
+                {
+                    coordinates += ",";
+                }
+                coordinates += "(" + (i + col).ToString() + "," + row.ToString() + ")";
+            }
+            return coordinates;
+        }
+    }
 }

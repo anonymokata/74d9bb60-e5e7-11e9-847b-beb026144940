@@ -6,174 +6,7 @@ namespace WordSearchTest
     [TestClass]
     public class WordSearchTest
     {
-     
-        [TestMethod]
-        public void NumberOfColumnsMatchNumberOfRowsForSearchTableTest()
-        {
-            WordSearch wordSearch = new WordSearch(6,6);
-            var result = wordSearch.ColumnsRowsEqual(5, 5);
-            Assert.AreEqual(true, result);
-        }
-        [TestMethod]
-        public void FindOffSetOfCharInSearchStringTest()
-        {
-            WordSearch wordSearch = new WordSearch(6, 6);
-            var result = wordSearch.FindCharOffSet(0, 'J', "aJohnxxx");
-            Assert.AreEqual(1, result);
-
-        }
-        [TestMethod]
-        public void GetSearchForwardStringIndexTest()
-        {
-            WordSearch wordSearch = new WordSearch(6, 6);
-            var result = wordSearch.GetSearchForwardBackStringIndex("John", "dfJohnxxx");
-            Assert.AreEqual(2, result);
-
-        }
-        [TestMethod]
-        public void GetSearchBackStringIndexTest()
-        {
-            WordSearch wordSearch = new WordSearch(6, 6);
-            var result = wordSearch.GetSearchForwardBackStringIndex("nhoj", "dfnhojxxx");
-            Assert.AreEqual(2, result);
-
-        }
-        [TestMethod]
-        public void GetSearchDownStringIndexTest()
-        {
-            WordSearch wordSearch = new WordSearch(6, 6);
-            var result = wordSearch.GetSearchDownUpStringIndex("IT", "XBIDFF" + "NHTJXT");
-            Assert.AreEqual(2, result);
-
-        }
-        [TestMethod]
-        public void GetSearchReversedDownStringIndexTest()
-        {
-            WordSearch wordSearch = new WordSearch(6, 6);
-            var result = wordSearch.GetSearchDownUpStringIndex("TI", "XBTDYF" + "NHIJXT");
-            Assert.AreEqual(2, result);
-
-        }
-        [TestMethod]
-        public void GetSearchDiagDownStringIndexTest()
-        {
-            WordSearch wordSearch = new WordSearch(6, 6);
-            var result = wordSearch.GetSearchDiagDownUpStringIndex("IT", "XBIDCF" + "NHJTXC");
-            Assert.AreEqual(2, result);
-
-        }
-        [TestMethod]
-        public void GetSearchDiagUpStringIndexTest()
-        {
-            WordSearch wordSearch = new WordSearch(6, 6);
-            var result = wordSearch.GetSearchDiagDownUpStringIndex("TI", "XBTDAF" + "NHJIXT");
-            Assert.AreEqual(2, result);
-
-        }
-        [TestMethod]
-        public void CalculateForwardCorrdinatesTest()
-        {
-            CalculateCoordinates coordinates = new CalculateCoordinates(6, 6);
-            string result = coordinates.CalculateForwardCorrdinates(7, 4);
-            Assert.AreEqual("(1,1),(2,1),(3,1),(4,1)", result);
-
-        }
-        [TestMethod]
-        public void GenerateForwardOutputTest()
-        {
-            WordSearch wordSearch = new WordSearch(6, 6);
-            string result = wordSearch.GenerateForwardOutput("BOB", "XBSDCFGBOB");
-            Assert.AreEqual("BOB: (1,1),(2,1),(3,1)", result);
-
-        }
-        [TestMethod]
-        public void ReveseOrderOfStringTest()
-        {
-            WordSearch wordSearch = new WordSearch(6, 6);
-            string result = wordSearch.ReveseOrderOfString("JOHN");
-            Assert.AreEqual("NHOJ", result);
-        }
-        [TestMethod]
-        public void GenerateReverseOutputTest()
-        {
-            WordSearch wordSearch = new WordSearch(6, 6);
-            string result = wordSearch.GenerateReverseOutput("JOHN", "XBSDCF" + "NHOJDJ");
-            Assert.AreEqual("JOHN: (3,1),(2,1),(1,1),(0,1)", result);
-
-        }
-        [TestMethod]
-        public void CalculateReveseCorrdinatesTest()
-        {
-            CalculateCoordinates coordinates = new CalculateCoordinates(6, 6);
-            string result = coordinates.CalculateReveseCorrdinates(7, 4);
-            Assert.AreEqual("(4,1),(3,1),(2,1),(1,1)", result);
-
-        }
-        [TestMethod]
-        public void GenerateDownOutputTest()
-        {
-            WordSearch wordSearch = new WordSearch(6, 6);
-            string result = wordSearch.GenerateDownOutPut("IT", "XBIDCF" + "NHTJXC");
-            Assert.AreEqual("IT: (2,0),(2,1)", result);
-
-        }
-        [TestMethod]
-        public void GenerateUpOutputTest()
-        {
-            WordSearch wordSearch = new WordSearch(6, 6);
-            string result = wordSearch.GenerateUpOutput("IT", "XBTDIF" + "NHIJXT");
-            Assert.AreEqual("IT: (2,1),(2,0)", result);
-
-        }
-        [TestMethod]
-        public void GenerateDiagDownLeftToRightDownOutputTest()
-        {
-            WordSearch wordSearch = new WordSearch(6, 6);
-            string result = wordSearch.GenerateDiagDownLeftToRightOutPut("IT", "IBIDCF" + "NHJTXC");
-            Assert.AreEqual("IT: (2,0),(3,1)", result);
-
-        }
-        [TestMethod]
-        public void GenerateDiagUpRightToLeftOutputTest()
-        {
-            WordSearch wordSearch = new WordSearch(6, 6);
-            string result = wordSearch.GenerateDiagUpRightToLeftOutput("IT", "IBTDIF" + "NHJIXT");
-            Assert.AreEqual("IT: (3,1),(2,0)", result);
-
-        }
-        [TestMethod]
-        public void GenerateDiagDownRightToLeftOutputTest()
-        {
-            WordSearch wordSearch = new WordSearch(6, 6);
-            string result = wordSearch.GenerateDiagDownRightToLefOutPut("IT", "XBIDCF" + "NTHJXC");
-            Assert.AreEqual("IT: (2,0),(1,1)", result);
-
-        }
-        [TestMethod]
-        public void GenerateDiagUpLeftToRightOutputTest()
-        {
-            WordSearch wordSearch = new WordSearch(6, 6);
-            string result = wordSearch.GenerateDiagUpLeftToLRightOutput("IT", "XBTDIF" + "NIHJXT");
-            Assert.AreEqual("IT: (1,1),(2,0)", result);
-
-        }
-        [TestMethod]
-        public void CalculateDownCorrdinatesTest()
-        {
-            CalculateCoordinates coordinates = new CalculateCoordinates(6, 6);
-            string result = coordinates.CalculateDownCorrdinates(7, 2);
-            Assert.AreEqual("(1,1),(1,2)", result);
-
-        }
-        [TestMethod]
-        public void CalculateUpCorrdinatesTest()
-        {
-            CalculateCoordinates coordinates = new CalculateCoordinates(6, 6);
-            string result = coordinates.CalculateUpCorrdinates(7, 2);
-            Assert.AreEqual("(1,1),(1,0)", result);
-
-        }
-        [TestMethod]
+         [TestMethod]
         public void CalculateDiagDownLeftToRightCorrdinatesTest()
         {
             CalculateCoordinates coordinates = new CalculateCoordinates(6, 6);
@@ -206,55 +39,6 @@ namespace WordSearchTest
 
         }
         [TestMethod]
-        public void SearchUpMatchTest()
-        {
-            WordSearch wordSearch = new WordSearch(6, 6);
-            bool result = wordSearch.SearchUpMatch(8, "IT", "XBTDIF" + "NHIJXT");
-            Assert.AreEqual(true, result);
-
-        }
-        [TestMethod]
-        public void SearchDownMatchTest()
-        {
-            WordSearch wordSearch = new WordSearch(6,6);
-            bool result = wordSearch.SearchDownMatch(2,"IT", "XBIDIF" + "NHTJXT");
-            Assert.AreEqual(true, result);
-
-        }
-
-        [TestMethod]
-        public void SearchDiagDownRightToLeftMatchTest()
-        {
-            WordSearch wordSearch = new WordSearch(6, 6);
-            bool result = wordSearch.SeachDiagDownRightToLeft(2, "IT", "XBIDCF" + "NHJTXC");
-            Assert.AreEqual(true, result);
-
-        }
-        [TestMethod]
-        public void SearchDiagUpLeftToRightMatchTest()
-        {
-            WordSearch wordSearch = new WordSearch(6, 6);
-            bool result = wordSearch.SeachDiagUpLeftToRight(9, "IT", "XBTDAF" + "NHJIXT");
-            Assert.AreEqual(true, result);
-
-        }
-        [TestMethod]
-        public void GetSearchStringIndexTest()
-        {
-            WordSearch wordSearch = new WordSearch(6, 6);
-            int result = wordSearch.GetSearchStringIndex("IT", "XBTDAF" + "NHJIXT");
-            Assert.AreEqual(9, result);
-
-        }
-        [TestMethod]
-        public void GetPositionOfNextCharInStringTest()
-        {
-            WordSearch wordSearch = new WordSearch(6, 6);
-            WordSearch.GridPosition result = wordSearch.GetPositionOfNextCharInString(0, "IT", "XBTDAF" + "NHJIXT");
-            Assert.AreEqual(1, result.LRUpDiag);
-
-        }
-        [TestMethod]
         public void CheckSearchLimitsSearchForwardTest()
         {
             WordSearchLibrary.Search.SearchForward searchForward = new WordSearchLibrary.Search.SearchForward(6, 6);
@@ -266,8 +50,15 @@ namespace WordSearchTest
         public void SearchStringResultSearchForwardTest()
         {
             WordSearchLibrary.Search.SearchForward searchForward = new WordSearchLibrary.Search.SearchForward(6, 6);
-            bool result = searchForward.SearchStringResult(2, "IT", "XBITAF" + "NHJTXX");
-            Assert.AreEqual(true, result);
+            string result = searchForward.SearchStringResult(2, "IT", "XBITAF" + "NHJTXX");
+            Assert.AreEqual("IT: (2,0),(3,0)", result);
+
+        }
+        public void CalculateCorrdinatesSearchForwardTest()
+        {
+            WordSearchLibrary.Search.SearchForward searchForward = new WordSearchLibrary.Search.SearchForward(6, 6);
+            string result = searchForward.CalculateCorrdinates(7, 2);
+            Assert.AreEqual("(2,0),(3,0)", result);
 
         }
         [TestMethod]
@@ -282,8 +73,16 @@ namespace WordSearchTest
         public void SearchStringResultSearchBackTest()
         {
             WordSearchLibrary.Search.SearchBack searchBack = new WordSearchLibrary.Search.SearchBack(6, 6);
-            bool result = searchBack.SearchStringResult(3, "IT", "XBTIAF" + "NHJTXX");
-            Assert.AreEqual(true, result);
+            string result = searchBack.SearchStringResult(3, "IT", "XBTIAF" + "NHJTXX");
+            Assert.AreEqual("IT: (3,0),(2,0)", result);
+
+        }
+        [TestMethod]
+        public void CalculateCorrdinatesSearchBackTest()
+        {
+            WordSearchLibrary.Search.SearchBack searchBack = new WordSearchLibrary.Search.SearchBack(6, 6);
+            string result = searchBack.CalculateCorrdinates(3, 2);
+            Assert.AreEqual("(3,0),(2,0)", result);
 
         }
         [TestMethod]
@@ -298,16 +97,16 @@ namespace WordSearchTest
         public void SearchStringResultSearchUpTest()
         {
             WordSearchLibrary.Search.SearchUp searchUp = new WordSearchLibrary.Search.SearchUp(6, 6);
-            bool result = searchUp.SearchStringResult(9, "IT", "XBFTAF" + "NHJIXX");
-            Assert.AreEqual(true, result);
+            string result = searchUp.SearchStringResult(9, "IT", "XBFTAF" + "NHJIXX");
+            Assert.AreEqual("IT: (3,1),(3,0)", result);
 
         }
         [TestMethod]
-        public void SubStringGetSearchUpTest()
+        public void CalculateCorrdinatestSearchUpTest()
         {
             WordSearchLibrary.Search.SearchUp searchUp = new WordSearchLibrary.Search.SearchUp(6, 6);
-            string result = searchUp.SubStringGet(9, 2, "XBFTAF" + "NHJIXX");
-            Assert.AreEqual("IT", result);
+            string result = searchUp.CalculateCorrdinates(9, 2);
+            Assert.AreEqual("(3,1),(3,0)", result);
 
         }
         [TestMethod]
@@ -322,8 +121,8 @@ namespace WordSearchTest
         public void SearchStringResultSearchDownTest()
         {
             WordSearchLibrary.Search.SearchDown searchDown = new WordSearchLibrary.Search.SearchDown(6, 6);
-            bool result = searchDown.SearchStringResult(3, "IT", "XBFIAF" + "NHJTXX");
-            Assert.AreEqual(true, result);
+            string result = searchDown.SearchStringResult(3, "IT", "XBFIAF" + "NHJTXX");
+            Assert.AreEqual("IT: (3,0),(3,1)", result);
 
         }
         [TestMethod]
@@ -335,6 +134,13 @@ namespace WordSearchTest
 
         }
         [TestMethod]
+        public void CalculateCorrdinatestSearchDownpTest()
+        {
+            WordSearchLibrary.Search.SearchDown searchDown = new WordSearchLibrary.Search.SearchDown(6, 6);
+            string result = searchDown.CalculateCorrdinates(3, 2);
+            Assert.AreEqual("(3,0),(3,1)", result);
+
+        }
         public void CheckSearchLimitsSearchDiagDownRightToLeftTest()
         {
             WordSearchLibrary.Search.SearchDiagDownRightToLeft searchDiagDownRightToLeft = new WordSearchLibrary.Search.SearchDiagDownRightToLeft(6, 6);
