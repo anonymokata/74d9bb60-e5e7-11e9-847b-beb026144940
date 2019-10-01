@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace WordSearchLibrary
+namespace WordSearchLibrary.Search
 {
-    public class SearchEngine
+    public class SearchEngine : ISearchEngine
     {
         public string coordinates;
         public int rowsSize;
@@ -35,7 +35,11 @@ namespace WordSearchLibrary
             }
             return reverseString;
         }
-
+        public static int GetIndex(int index, string searchValue, string toSearch)
+        {
+            int offset = toSearch.IndexOf(searchValue[0], index);
+            return offset;
+        }
 
     }
 }

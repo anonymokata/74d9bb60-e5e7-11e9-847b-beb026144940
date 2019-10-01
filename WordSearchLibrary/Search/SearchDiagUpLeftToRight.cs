@@ -15,11 +15,8 @@ namespace WordSearchLibrary.Search
         {
             int colunmPosition = (index / this.colSize) * this.colSize - index;
             int rowPosition = (index / this.rowsSize) * this.rowsSize;
-            if (colunmPosition + searchValue.Length <= this.colSize)
-            {
-                return true;
-            }
-            else if (rowPosition - searchValue.Length >= 0)
+            if ((colunmPosition + searchValue.Length <= this.colSize) &&
+                    (rowPosition - searchValue.Length >= 0))
             {
                 return true;
             }

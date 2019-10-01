@@ -7,30 +7,6 @@ namespace WordSearchTest
     public class WordSearchTest
     {
         [TestMethod]
-        public void CalculateDiagUpRightToLeftCorrdinatesTest()
-        {
-            CalculateCoordinates coordinates = new CalculateCoordinates(6, 6);
-            string result = coordinates.CalculateDiagUpRightToLeftCorrdinates(0, 2);
-            Assert.AreEqual("(1,1),(0,0)", result);
-
-        }
-        [TestMethod]
-        public void CalculateDiagDownRightToLeftCorrdinatesTest()
-        {
-            CalculateCoordinates coordinates = new CalculateCoordinates(6, 6);
-            string result = coordinates.CalculateDiagDownRightToLeftCorrdinates(2, 2);
-            Assert.AreEqual("(2,0),(1,1)", result);
-
-        }
-        [TestMethod]
-        public void CalculateDiagUpLeftToRightCorrdinatesTest()
-        {
-            CalculateCoordinates coordinates = new CalculateCoordinates(6, 6);
-            string result = coordinates.CalculateDiagUpLeftToRighCorrdinates(7, 2);
-            Assert.AreEqual("(1,1),(0,0)", result);
-
-        }
-        [TestMethod]
         public void CheckSearchLimitsSearchForwardTest()
         {
             WordSearchLibrary.Search.SearchForward searchForward = new WordSearchLibrary.Search.SearchForward(6, 6);

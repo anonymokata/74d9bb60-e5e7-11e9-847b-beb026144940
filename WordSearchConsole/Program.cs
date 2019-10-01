@@ -1,6 +1,9 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.IO;
 using WordSearchLibrary;
+using WordSearchLibrary.Operations;
+using WordSearchLibrary.Search;
 
 namespace WordSearchLibrary
 {
@@ -8,33 +11,40 @@ namespace WordSearchLibrary
     {
         static void Main(string[] args)
         {
-            string SearchGrid = "";
-            int cols = 0;
-            int rowcnt = 0;
-            WordSearchLibrary.Search.SearchDiagUpLeftToRight searchDiagUpLeftToRight = new WordSearchLibrary.Search.SearchDiagUpLeftToRight(6, 6);
-            string result = searchDiagUpLeftToRight.SubStringGet(7, 2, "XBTFAF" + "NIHJXX");
-            using (var reader = new StreamReader(@"c:\WordSearchText.csv"))
+            SearchOperation searchOperation = new SearchOperation(@"File\WordSearchText.csv");
+            if (searchOperation.Error == -1)
             {
-                string SearchValues = reader.ReadLine();
-                string[] SearchValuesArray = SearchValues.Split(',');
-                while (!reader.EndOfStream)
+            }
+            List<SearchEngine> searchEngines = new List<SearchEngine>();
+            searchEngines.Add(new SearchForward(searchOperation.rowcnt, searchOperation.cols));
+            searchEngines.Add(new SearchBack(searchOperation.rowcnt, searchOperation.cols));
+            searchEngines.Add(new SearchDown(searchOperation.rowcnt, searchOperation.cols));
+            searchEngines.Add(new SearchUp(searchOperation.rowcnt, searchOperation.cols));
+            searchEngines.Add(new SearchDiagUpRightToLeft(searchOperation.rowcnt, searchOperation.cols));
+            searchEngines.Add(new SearchDiagUpLeftToRight(searchOperation.rowcnt, searchOperation.cols));
+            searchEngines.Add(new SearchDiagDownRightToLeft(searchOperation.rowcnt, searchOperation.cols));
+            searchEngines.Add(new SearchDiagDownLeftToRight(searchOperation.rowcnt, searchOperation.cols));
+            foreach (string value in searchOperation.SearchValuesArray)
+            {
+                for (int i = 0; i!= -1;++i)
                 {
-                    string line = reader.ReadLine();
-                    if (rowcnt == 0)
+                    i = SearchEngine.GetIndex(i, value, searchOperation.stringSearchGrid);
+                    if (i == -1)
                     {
-                        cols = line.Length;
+                        break;
                     }
                     else
                     {
-                        ++rowcnt;
+                        foreach(SearchEngine engine in searchEngines)
+                        {
+                            string output = engine.SearchStringResult(i, value, searchOperation.stringSearchGrid);
+                            if (output != "")
+                            {
+                                Console.Write(output + "\n");
+                                break;
+                            }                           
+                        }
                     }
-                    string[] values = line.Split(',');
-                    SearchGrid += string.Join("", values);
-                }
-        //        WordSearch wordSearch = new WordSearch(cols, rowcnt);
-                foreach(var value in SearchValuesArray)
-                {
-
                 }
             }
         }
