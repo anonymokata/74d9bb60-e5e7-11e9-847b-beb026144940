@@ -6,6 +6,8 @@ namespace WordSearchLibrary.Search
 {
     public class SearchForward : SearchEngine
     {
+        private int ColunmPosition { get; set; }
+        private int RowPosition { get; set; }
         public SearchForward(int cols, int rows)
         {
             this.colSize = cols;
@@ -13,12 +15,17 @@ namespace WordSearchLibrary.Search
         }
         public override bool CheckSearchLimits(int index, string searchValue, string toSearch)
         {
-            int colunmPosition = index - ((index / this.colSize) * this.colSize);
+            ColunmPosition = index - (index / this.colSize) * this.colSize;
             if (index / this.colSize == 0)
             {
-                colunmPosition = index;
+                ColunmPosition = index;
             }
-            if (colunmPosition + searchValue.Length <= this.colSize)
+            RowPosition = (index / this.rowsSize);
+            if (index / this.rowsSize == 0)
+            {
+                RowPosition = 0;
+            }
+            if (ColunmPosition + searchValue.Length <= this.colSize)
             {
                 return true;
             }
@@ -39,16 +46,6 @@ namespace WordSearchLibrary.Search
         }
         public override string CalculateCorrdinates(int Offset, int lengthToSearch)
         {
-            int row = (Offset / this.rowsSize);
-            int col = 0;
-            if (Offset >= this.colSize)
-            {
-                col = Offset - row * this.colSize;
-            }
-            else
-            {
-                col = Offset;
-            }
             string coordinates = "";
             for (int i = 0; i < lengthToSearch; i++)
             {
@@ -56,7 +53,7 @@ namespace WordSearchLibrary.Search
                 {
                     coordinates += ",";
                 }
-                coordinates += "(" + (i + col).ToString() + "," + row.ToString() + ")";
+                coordinates += "(" + (i + ColunmPosition).ToString() + "," + RowPosition.ToString() + ")";
             }
             return coordinates;
         }

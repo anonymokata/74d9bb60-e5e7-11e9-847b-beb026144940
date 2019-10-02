@@ -6,6 +6,8 @@ namespace WordSearchLibrary.Search
 {
     public class SearchDiagDownRightToLeft : SearchEngine
     {
+        private int ColunmPosition { get; set; }
+        private int RowPosition { get; set; }
         public SearchDiagDownRightToLeft(int cols, int rows)
         {
             this.colSize = cols;
@@ -13,18 +15,18 @@ namespace WordSearchLibrary.Search
         }
         public override bool CheckSearchLimits(int index, string searchValue, string toSearch)
         {
-            int colunmPosition = index - ((index / this.colSize) * this.colSize);
+            ColunmPosition = index - (index / this.colSize) * this.colSize;
             if (index / this.colSize == 0)
             {
-                colunmPosition = index;
+                ColunmPosition = index;
             }
-            int rowPosition = (index / this.rowsSize) + 1;
+            RowPosition = (index / this.rowsSize);
             if (index / this.rowsSize == 0)
             {
-                rowPosition = 0;
+                RowPosition = 0;
             }
-            if ((colunmPosition - searchValue.Length >= 0) &&
-                (rowPosition + searchValue.Length <= this.rowsSize))
+            if ((ColunmPosition - searchValue.Length >= 0) &&
+                (RowPosition + searchValue.Length <= this.rowsSize))
             {
                 return true;
             }
@@ -54,24 +56,14 @@ namespace WordSearchLibrary.Search
         }
         public override string CalculateCorrdinates(int Offset, int lengthToSearch)
         {
-            int row = (Offset / this.colSize);
-            int col = 0;
-            if (Offset >= this.colSize)
-            {
-                col = Offset - row * this.colSize;
-            }
-            else
-            {
-                col = Offset;
-            }
             string coordinates = "";
-            for (int i = 0; i < lengthToSearch; i++)
+            for (int i = 0; i <= lengthToSearch-1; i++)
             {
                 if (i != 0)
                 {
                     coordinates += ",";
                 }
-                coordinates += "(" + (col - i).ToString() + "," + (i + row).ToString() + ")";
+                coordinates += "(" + (ColunmPosition - i).ToString() + "," + (i + RowPosition).ToString() + ")";
             }
             return coordinates;
         }

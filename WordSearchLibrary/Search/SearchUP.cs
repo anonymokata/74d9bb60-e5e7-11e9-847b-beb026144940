@@ -6,6 +6,8 @@ namespace WordSearchLibrary.Search
 {
     public class SearchUp : SearchEngine
     {
+        private int ColunmPosition { get; set; }
+        private int RowPosition { get; set; }
         public SearchUp(int cols, int rows)
         {
             this.colSize = cols;
@@ -13,12 +15,13 @@ namespace WordSearchLibrary.Search
         }
         public override bool CheckSearchLimits(int index, string searchValue, string toSearch)
         {
-            int rowPosition = (index / this.rowsSize) + 1;
-            if (index / this.rowsSize == 0)
+            ColunmPosition = index - (index / this.colSize) * this.colSize;
+            if (index / this.colSize == 0)
             {
-                rowPosition = 0;
+                ColunmPosition = index;
             }
-            if (rowPosition - searchValue.Length >= 0)
+            RowPosition = (index / this.rowsSize);
+            if (RowPosition - searchValue.Length >= 0)
             {
                 return true;
             }
@@ -49,24 +52,14 @@ namespace WordSearchLibrary.Search
 
         public override string CalculateCorrdinates(int Offset, int lengthToSearch)
         {
-            int row = (Offset / this.colSize);
-            int col = 0;
-            if (Offset >= this.colSize)
-            {
-                col = Offset - row * this.colSize;
-            }
-            else
-            {
-                col = Offset;
-            }
             string coordinates = "";
-            for (int i = lengthToSearch - 1; 0 <= i; i--)
+            for (int i = 0; i <= lengthToSearch-1; i++)
             {
                 if (i != lengthToSearch - 1)
                 {
                     coordinates += ",";
                 }
-                coordinates += "(" + (col).ToString() + "," + i + ")";
+                coordinates += "(" + (ColunmPosition).ToString() + "," + (RowPosition - i).ToString() + ")";
             }
             return coordinates;
         }
