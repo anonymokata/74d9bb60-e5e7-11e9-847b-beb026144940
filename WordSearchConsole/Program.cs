@@ -24,9 +24,11 @@ namespace WordSearchLibrary
             searchEngines.Add(new SearchDiagUpLeftToRight(searchOperation.rowcnt, searchOperation.cols));
             searchEngines.Add(new SearchDiagDownRightToLeft(searchOperation.rowcnt, searchOperation.cols));
             searchEngines.Add(new SearchDiagDownLeftToRight(searchOperation.rowcnt, searchOperation.cols));
+            
             foreach (string value in searchOperation.SearchValuesArray)
             {
-                for (int i = 0; i!= -1;++i)
+                bool found = false;
+                for (int i = 0; i!= -1 && !found; ++i)
                 {
                     i = SearchEngine.GetIndex(i, value, searchOperation.stringSearchGrid);
                     if (i == -1)
@@ -35,15 +37,7 @@ namespace WordSearchLibrary
                     }
                     else
                     {
-                        foreach(SearchEngine engine in searchEngines)
-                        {
-                            string output = engine.SearchStringResult(i, value, searchOperation.stringSearchGrid);
-                            if (output != "")
-                            {
-                                Console.Write(output + "\n");
-                                break;
-                            }                           
-                        }
+                        found = SearchEngine.RunEngines(searchEngines, i, value, searchOperation.stringSearchGrid);
                     }
                 }
             }

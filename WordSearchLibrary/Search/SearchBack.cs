@@ -13,7 +13,12 @@ namespace WordSearchLibrary.Search
         }
         public override bool CheckSearchLimits(int index, string searchValue, string toSearch)
         {
-            if ((index - searchValue.Length) >= 0)
+            int colunmPosition = index - ((index / this.colSize) * this.colSize);
+            if (index / this.colSize == 0)
+            {
+                colunmPosition = index;
+            }
+            if (colunmPosition - searchValue.Length >= 0)
             {
                 return true;
             }
@@ -24,8 +29,8 @@ namespace WordSearchLibrary.Search
             if (CheckSearchLimits(index, searchValue, toSearch))
             {
                 string value = toSearch.Substring(index - (searchValue.Length-1), searchValue.Length);
-                string reverseValue = ReveseOrderOfString(searchValue);
-                if (value.Contains(reverseValue))
+                string reverseValue = ReveseOrderOfString(value);
+                if (reverseValue.Contains(searchValue))
                 {
                     string coordinates = CalculateCorrdinates(index, searchValue.Length);
                     return searchValue + ": " + coordinates; ;

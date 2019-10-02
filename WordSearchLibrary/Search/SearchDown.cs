@@ -13,14 +13,17 @@ namespace WordSearchLibrary.Search
         }
         public override bool CheckSearchLimits(int index, string searchValue, string toSearch)
         {
-            int rowPosition = (index / this.rowsSize) * this.rowsSize;
-           if (rowPosition + searchValue.Length <= this.rowsSize)
+            int rowPosition = (index / this.rowsSize) + 1;
+            if (index / this.rowsSize == 0)
+            {
+                rowPosition = 0;
+            }
+            if (rowPosition + searchValue.Length <= this.rowsSize)
             {
                 return true;
             }
             return false;
         }
-
         public override string SearchStringResult(int index, string searchValue, string toSearch)
         {
             if (CheckSearchLimits(index, searchValue, toSearch))
@@ -37,8 +40,7 @@ namespace WordSearchLibrary.Search
         public override string SubStringGet(int index, int length, string toSearch)
         {
             string value = "";
-            int limit = index + ((length - 1) * this.rowsSize);
-            for (int i = index; i <= limit; i += this.rowsSize)
+            for (int i = index, j=0; j <= length - 1; i += this.rowsSize, j++)
             {
                 value += toSearch[i].ToString();
             }
