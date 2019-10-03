@@ -6,8 +6,8 @@ namespace WordSearchLibrary.Search
 {
     public class SearchDiagDownLeftToRight : SearchEngine
     {
-        private int ColunmPosition { get; set; }
-        private int RowPosition { get; set; }
+        public int ColunmPosition { get; set; }
+        public int RowPosition { get; set; }
         public SearchDiagDownLeftToRight(int cols, int rows)
         {
             this.colSize = cols;

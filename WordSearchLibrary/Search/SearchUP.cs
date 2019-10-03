@@ -6,8 +6,8 @@ namespace WordSearchLibrary.Search
 {
     public class SearchUp : SearchEngine
     {
-        private int ColunmPosition { get; set; }
-        private int RowPosition { get; set; }
+        public int ColunmPosition { get; set; }
+        public int RowPosition { get; set; }
         public SearchUp(int cols, int rows)
         {
             this.colSize = cols;
@@ -21,7 +21,7 @@ namespace WordSearchLibrary.Search
                 ColunmPosition = index;
             }
             RowPosition = (index / this.rowsSize);
-            if (RowPosition - searchValue.Length >= 0)
+            if (RowPosition - (searchValue.Length-1) >= 0)
             {
                 return true;
             }
@@ -55,7 +55,7 @@ namespace WordSearchLibrary.Search
             string coordinates = "";
             for (int i = 0; i <= lengthToSearch-1; i++)
             {
-                if (i != lengthToSearch - 1)
+                if (i != 0)
                 {
                     coordinates += ",";
                 }

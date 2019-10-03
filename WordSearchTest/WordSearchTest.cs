@@ -43,12 +43,13 @@ namespace WordSearchTest
             WordSearchLibrary.Search.SearchBack searchBack = new WordSearchLibrary.Search.SearchBack(6, 6);
             string result = searchBack.SearchStringResult(3, "IT", "XBTIAF" + "NHJTXX");
             Assert.AreEqual("IT: (3,0),(2,0)", result);
-
         }
         [TestMethod]
         public void CalculateCorrdinatesSearchBackTest()
         {
             WordSearchLibrary.Search.SearchBack searchBack = new WordSearchLibrary.Search.SearchBack(6, 6);
+            searchBack.ColunmPosition = 3;
+            searchBack.RowPosition = 0;
             string result = searchBack.CalculateCorrdinates(3, 2);
             Assert.AreEqual("(3,0),(2,0)", result);
 
@@ -73,6 +74,8 @@ namespace WordSearchTest
         public void CalculateCorrdinatestSearchUpTest()
         {
             WordSearchLibrary.Search.SearchUp searchUp = new WordSearchLibrary.Search.SearchUp(6, 6);
+            searchUp.ColunmPosition = 3;
+            searchUp.RowPosition = 1;
             string result = searchUp.CalculateCorrdinates(9, 2);
             Assert.AreEqual("(3,1),(3,0)", result);
 
@@ -105,6 +108,8 @@ namespace WordSearchTest
         public void CalculateCorrdinatestSearchDownpTest()
         {
             WordSearchLibrary.Search.SearchDown searchDown = new WordSearchLibrary.Search.SearchDown(6, 6);
+            searchDown.ColunmPosition = 3;
+            searchDown.RowPosition = 0;
             string result = searchDown.CalculateCorrdinates(3, 2);
             Assert.AreEqual("(3,0),(3,1)", result);
 
@@ -136,6 +141,8 @@ namespace WordSearchTest
         public void CalculateCorrdinatestSearchDiagDownRightToLeftTest()
         {
             WordSearchLibrary.Search.SearchDiagDownRightToLeft searchDiagDownRightToLeft = new WordSearchLibrary.Search.SearchDiagDownRightToLeft(6, 6);
+            searchDiagDownRightToLeft.ColunmPosition = 3;
+            searchDiagDownRightToLeft.RowPosition = 0;
             string result = searchDiagDownRightToLeft.CalculateCorrdinates(3, 2);
             Assert.AreEqual("(3,0),(2,1)", result);
 
@@ -168,6 +175,8 @@ namespace WordSearchTest
         public void CalculateCorrdinatestSearchDiagDownLeftToRightTest()
         {
             WordSearchLibrary.Search.SearchDiagDownLeftToRight searchDiagDownLeftToRight = new WordSearchLibrary.Search.SearchDiagDownLeftToRight(6, 6);
+            searchDiagDownLeftToRight.ColunmPosition = 2;
+            searchDiagDownLeftToRight.RowPosition = 0;
             string result = searchDiagDownLeftToRight.CalculateCorrdinates(2, 2);
             Assert.AreEqual("(2,0),(3,1)", result);
 
@@ -200,6 +209,8 @@ namespace WordSearchTest
         public void CalculateCorrdinatestSearchDiagUpLeftToRightTest()
         {
             WordSearchLibrary.Search.SearchDiagUpLeftToRight searchDiagUpLeftToRight = new WordSearchLibrary.Search.SearchDiagUpLeftToRight(6, 6);
+            searchDiagUpLeftToRight.ColunmPosition = 1;
+            searchDiagUpLeftToRight.RowPosition = 1;
             string result = searchDiagUpLeftToRight.CalculateCorrdinates(7, 2);
             Assert.AreEqual("(1,1),(2,0)", result);
 
@@ -232,6 +243,8 @@ namespace WordSearchTest
         public void CalculateCorrdinatestSearchDiagUpRightToLeftTest()
         {
             WordSearchLibrary.Search.SearchDiagUpRightToLeft searchDiagUpRightToLeft = new WordSearchLibrary.Search.SearchDiagUpRightToLeft(6, 6);
+            searchDiagUpRightToLeft.ColunmPosition = 2;
+            searchDiagUpRightToLeft.RowPosition = 1;
             string result = searchDiagUpRightToLeft.CalculateCorrdinates(8, 2);
             Assert.AreEqual("(2,1),(1,0)", result);
 

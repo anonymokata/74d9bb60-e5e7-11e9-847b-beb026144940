@@ -6,8 +6,8 @@ namespace WordSearchLibrary.Search
 {
     public class SearchDiagUpRightToLeft : SearchEngine
     {
-        private int ColunmPosition { get; set; }
-        private int RowPosition { get; set; }
+        public int ColunmPosition { get; set; }
+        public int RowPosition { get; set; }
         public SearchDiagUpRightToLeft(int cols, int rows)
         {
             this.colSize = cols;
@@ -25,8 +25,8 @@ namespace WordSearchLibrary.Search
             {
                 RowPosition = 0;
             }
-            if ((ColunmPosition - searchValue.Length >= 0) &&
-                (RowPosition - searchValue.Length >= 0))
+            if ((ColunmPosition - (searchValue.Length-1) >= 0) &&
+                (RowPosition - (searchValue.Length-1) >= 0))
             {
                 return true;
             }

@@ -11,7 +11,12 @@ namespace WordSearchLibrary
     {
         static void Main(string[] args)
         {
-            SearchOperation searchOperation = new SearchOperation(@"File\WordSearchText.csv");
+            string fileName = @"c:\WordSearchText.csv";
+            if (args.Length > 0)
+            {
+                fileName = args[0];
+            }
+            SearchOperation searchOperation = new SearchOperation(fileName);
             if (searchOperation.Error == -1)
             {
             }
